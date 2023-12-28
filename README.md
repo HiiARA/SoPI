@@ -56,7 +56,7 @@ Armas de las aplicaciones que incluyen SoPI son navegadores web, antivirus, repr
 - DirectX Redist Repack
 
 ### Seguridad
-- - 360 Seguridad total
+- 360 Seguridad total
 - Avast Free
 - Microsoft Security Essentials
 
