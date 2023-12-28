@@ -14,7 +14,7 @@ Armas de las aplicaciones que incluyen SoPI son navegadores web, antivirus, repr
 - Fácil de usar
 
 ## Uso
-1. Descargar la última versión de SoPI (https://codeload.github.com/HiiARA/SoPI/zip/refs/heads/main) y extraiga el archivo .ZIP a la ubicación desde.
+1. Descargar la última versión de [SoPI] (https://codeload.github.com/HiiARA/SoPI/zip/refs/heads/main) y extraiga el archivo .ZIP a la ubicación desde.
 2. Ejecútelo (SoPI detectará automáticamente la versión de su sistema operativo y descargará wget, que es el software principal para realizar las descargas.)
 3. Espere a que wget descargue. Es muy importante que no cierre la ventana mientras se efectua la descarga, de lo contrario, wget descargá incompleto.
 4. Navegue por las categorías para comenzar las descargas.
