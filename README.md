@@ -15,7 +15,7 @@ La selección se basa en mi experiencia personal y laboral; así como también e
 - Portátil
 - Fácil de usar
 
-## ¿Qué programas descarga SoPI????
+## ¿Qué programas descarga SoPI?????
 
 ### Navegadores web :
 
@@ -72,6 +72,6 @@ La selección se basa en mi experiencia personal y laboral; así como también e
 5). El programa que elija para descargar, se instalará de la gerencia automática y desatendida, una excepción de AIMP, OperaONE, OperaGX .
 
 ## Proyectos
-Probablemente este guión te ha facilitado tu trabajo o te gusten mis otros proyectos. Si es así, considere apoyar mi trabajo comprandome una taza de café.
+Probablemente esta pequeña herramienta haya facilitado tu trabajo, o mis otros proyectos te hayan beneficiado. Si es así, considere apoyar mi trabajo comprándome una taza de café.
 
-<a href='https://ko-fi.com/F1F2H2KW' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+<a href='https://ko-fi.com/F1F2H2KW' objetivo='_en blanco'><img altura='36' estilo='frontera:0px;altura:36))px; ' src='https://storage.ko-fi.com/cdn/kofi2.png?v = 3 ' frontera='0' alt='Cómprame un café en ko-fi.com' /></a>
