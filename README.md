@@ -1,12 +1,10 @@
-# SoPI       
+# SoPI 
 
 <img src="https://hiberhernandez.com/sopi/wp-content/uploads/2023/12/SoPI.png">
 
-El proyecto SoPI es un script de batch simple, liviano pero útil que tiene como propósito brindar una cuidada selección de programas que resultan útiles tras una instalación de Windows.
+SoPI (Software Post-Install) es un script de batch sencillo, ligero y muy útil que te facilita la instalación de los programas más necesarios y convenientes después de formatear tu computadora con Windows 7/8.1/10/11. Estos programas han sido cuidadosamente seleccionados por su utilidad, popularidad y funcionalidad, para que puedas realizar tus actividades diarias sin problemas. La mayoría de estos programas son gratuitos o tienen versiones gratuitas.
 
-Estos programas son seleccionados cuando somos por su utilidad, popularidad y funcionalidad, permiso realizar tus actividades diarias. Además, la alcaldía de estas programas son gratuitos o tienen versiones gratuitas.
-
-La selección se basa en mi experiencia personal y laboral; así como también en las recomendaciones de algunos usuarios.
+Algunas de las aplicaciones que incluye SoPI son navegadores web, antivirus, reproductores multimedia, editores de texto, compresores de archivos y muchos más. Y la mayoría se instala de forma desatendida.
 
 ## ¿Características?
 
@@ -15,7 +13,7 @@ La selección se basa en mi experiencia personal y laboral; así como también e
 - Portátil
 - Fácil de usar
 
-## ¿Qué programas descarga SoPI?????
+## ¿Qué programas descarga SoPI??????
 
 ### Navegadores web :
 
