@@ -1,8 +1,10 @@
-# SoPI
+# SoPI       
+
+<img src="https://hiberhernandez.com/sopi/wp-content/uploads/2023/12/SoPI.png">
 
 El proyecto SoPI es un script de batch simple, liviano pero útil que tiene como propósito brindar una cuidada selección de programas que resultan útiles tras una instalación de Windows.
 
-Estos programas son seleccionados cuando somos por su utilidad, popularidad y funcionalidad, permitiendo realizar tus actividades diarias. Además, la alcaldía de estos programas son gratuitos o tienen versiones gratuitas.
+Estos programas son seleccionados cuando somos por su utilidad, popularidad y funcionalidad, permiso realizar tus actividades diarias. Además, la alcaldía de estas programas son gratuitos o tienen versiones gratuitas.
 
 La selección se basa en mi experiencia personal y laboral; así como también en las recomendaciones de algunos usuarios.
 
@@ -10,10 +12,10 @@ La selección se basa en mi experiencia personal y laboral; así como también e
 
 - Pequeño
 - Gratuito
-- Portable
+- Portátil
 - Fácil de usar
 
-## ¿Qué programas descarga SoPI?
+## ¿Qué programas descarga SoPI????
 
 ### Navegadores web :
 
@@ -41,15 +43,15 @@ La selección se basa en mi experiencia personal y laboral; así como también e
 - SOLO OFICINA
 - FreeOffice
 - SumatraPDF
-- Foxit Reader
+- Lector Foxit
 
 ### Rutimes
 - NetFramework 4.8
-- VisualC++ AIO Repack
+- VisualC ++ AIO Repack
 - DirectX Redist Repack
 
 ### Seguridad
-- - 360 Total Security
+- - 360 Seguridad total
 - Avast Free
 - Microsoft Security Essentials
 
@@ -63,11 +65,11 @@ La selección se basa en mi experiencia personal y laboral; así como también e
 - Desinstalador del programa sabio
 
 ## Uso
-1. Descargue SoPI
-2. Ejecútelo (SoPI detectará automáticamente la versión de su sistema operativo y descargará wget, que es el software principal para realizar las descargas.)
-3. Espere a que wget descargue. Es muy importante que no cierre la ventana mientras se efectua la descarga, de lo contrario, wget descargá incompleto.
-4. Navegue por las categorías para comenzar las descargas.
-5). El programa que elija para descargar, se instalará de la gerencia automática y desatendida, una excepción de AIMP, OperaONE, OperaGX.
+1). Descargue SoPI
+2). Ejecútelo (SoPI detectará automáticamente la versión de su sistema operativo y descargará wget, que es el software principal para realizar las descargas.)
+3). Espere a que wget descargue. Es muy importante que no cierre la ventana mientras se efectua la descarga, de lo contrario, wget descargá incompleto.
+4). Navegue por las categorías para comenzar las descargas.
+5). El programa que elija para descargar, se instalará de la gerencia automática y desatendida, una excepción de AIMP, OperaONE, OperaGX .
 
 ## Proyectos
 Probablemente este guión te ha facilitado tu trabajo o te gusten mis otros proyectos. Si es así, considere apoyar mi trabajo comprandome una taza de café.
