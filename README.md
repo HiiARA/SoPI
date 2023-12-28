@@ -63,13 +63,13 @@ Algunas de las aplicaciones que incluye SoPI son navegadores web, antivirus, rep
 - Desinstalador del programa sabio
 
 ## Uso
-1). Descargue SoPI
-2). Ejecútelo (SoPI detectará automáticamente la versión de su sistema operativo y descargará wget, que es el software principal para realizar las descargas.)
-3). Espere a que wget descargue. Es muy importante que no cierre la ventana mientras se efectua la descarga, de lo contrario, wget descargá incompleto.
-4). Navegue por las categorías para comenzar las descargas.
-5). El programa que elija para descargar, se instalará de la gerencia automática y desatendida, una excepción de AIMP, OperaONE, OperaGX .
+1. Descargue SoPI
+2. Ejecútelo (SoPI detectará automáticamente la versión de su sistema operativo y descargará wget, que es el software principal para realizar las descargas.)
+3. Espere a que wget descargue. Es muy importante que no cierre la ventana mientras se efectua la descarga, de lo contrario, wget descargá incompleto.
+4. Navegue por las categorías para comenzar las descargas.
+5. El programa que elija para descargar, se instalará de la gerencia automática y desatendida, una excepción de AIMP, OperaONE, OperaGX .
 
-## Proyectos
+## Donar
 Probablemente esta pequeña herramienta haya facilitado tu trabajo, o mis otros proyectos te hayan beneficiado. Si es así, considere apoyar mi trabajo comprándome una taza de café.
 
 <a href='https://ko-fi.com/F1F2H2KW' objetivo='_en blanco'><img altura='36' estilo='frontera:0px;altura:36))px; ' src='https://storage.ko-fi.com/cdn/kofi2.png?v = 3 ' frontera='0' alt='Cómprame un café en ko-fi.com' /></a>
