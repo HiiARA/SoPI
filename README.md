@@ -29,7 +29,7 @@ Algunos de los programas que encuentra en SoPI son navegadores web, antivirus, r
 - Google Chrome
 - Mozilla Firefox
 - Microsoft Edge
-- Valiente
+- Brave
 - Opera One
 - OperaGX
 
@@ -38,6 +38,7 @@ Algunos de los programas que encuentra en SoPI son navegadores web, antivirus, r
 - Media Player Classic - Home Cinema
 - Aimp
 - foobar2000
+- Winamp
 
 ### Gráficos
 - FocusOnImageViewer
@@ -47,10 +48,10 @@ Algunos de los programas que encuentra en SoPI son navegadores web, antivirus, r
 
 ### Ofimatica
 - LibreOffice
-- SOLO OFICINA
+- OnlyOffice
 - FreeOffice
 - SumatraPDF
-- Lector Foxit
+- Foxit Reader
 
 ### Rutimes
 - NetFramework 4.8
@@ -66,10 +67,10 @@ Algunos de los programas que encuentra en SoPI son navegadores web, antivirus, r
 - 7-Zip
 - PeaZIP
 - CCleaner Free
-- Todo
-- Bloqueador de actualizaciones de Windows
+- Evertything
+- Windows Update Blocker
 - Optimizador
-- Desinstalador del programa sabio
+- Geek Uninstaller
 
 ## Donar
 Probablemente esta pequeña herramienta haya facilitado tu trabajo, o mis otros proyectos te hayan beneficiado. Si es así, considere apoyarme comprándome una taza de café.
