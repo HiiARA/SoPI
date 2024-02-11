@@ -1012,11 +1012,9 @@ cls
 echo Descarga aprox. de [3 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando GeekUninstaller
-"%~dp0wget.exe" https://geekuninstaller.com/geek.zip -O %public%\Desktop\geek.zip
+"%~dp0wget.exe" https://geekuninstaller.com/geek.zip -O %homedrive%\SoPI\geek.zip
 cls
-echo GeekUninstaller se ha guardado en el Escritorio
-echo.
-pause
+start %homedrive%\SoPI\
 cls
 goto winOS
 
