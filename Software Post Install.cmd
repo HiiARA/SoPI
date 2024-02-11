@@ -76,6 +76,7 @@ echo.	[3] Graficos		 [6] Seguridad          [9] Otros proyectos
 echo.
 echo.
 if not exist "%tmp%/SoPI/" md "%tmp%/SoPI/"
+if not exist "%homedrive%/SoPI/" md "%homedrive%/SoPI/"
 choice /C:123456789 /N /M "choice | Seleccione una categoria:"
 if errorlevel 9 goto:proyectos
 if errorlevel 8 goto:about
@@ -257,14 +258,16 @@ echo [1] VLC Media Player
 echo [2] Media Player Clasic
 echo [3] AIMP
 echo [4] foobar2000
-echo [5] Regresar
+echo [5] Winamp
+echo [6] Regresar
 echo.
 set /p hbz=Opcion: 
 if "%hbz%"=="1" goto vlc
 if "%hbz%"=="2" goto mpc
 if "%hbz%"=="3" goto aimp
 if "%hbz%"=="4" goto foobar
-if "%hbz%"=="5" goto winOS
+if "%hbz%"=="5" goto winamp
+if "%hbz%"=="6" goto winOS
 echo Opcion invalida
 pause>nul
 cls
@@ -307,10 +310,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [18 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Media Player Clasic de 32 bits
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.1.3/MPC-HC.2.1.3.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.1.3.x86.exe
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.1.4/MPC-HC.2.1.4.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.1.4.x86.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\MPC-HC.2.1.3.x86.exe /silent
+start /wait %TMP%\SoPI\MPC-HC.2.1.4.x86.exe /silent
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -320,10 +323,10 @@ goto winOS
 echo Descarga aprox. de [20 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Media Player Clasic de 64 bits
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.1.3/MPC-HC.2.1.3.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.1.3.x64.exe
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.1.4/MPC-HC.2.1.4.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.1.4.x64.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\MPC-HC.2.1.3.x64.exe /silent
+start /wait %TMP%\SoPI\MPC-HC.2.1.4.x64.exe /silent
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -366,10 +369,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [6 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando foobar2000 de 32 bits
-"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000_v2.1.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_v2.1.exe
+"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000_v2.1.2.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_v2.1.2.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\foobar2000_v2.1.exe /S
+start /wait %TMP%\SoPI\foobar2000_v2.1.2.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -379,10 +382,32 @@ goto winOS
 echo Descarga aprox. de [6 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando foobar2000 de 64 bits
-"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000-x64_v2.1.exe --no-check-certificate -O %TMP%\SoPI\foobar2000-x64_v2.1.exe
+"%~dp0wget.exe" https://www.foobar2000.org/getfile/foobar2000-x64_v2.1.2.exe --no-check-certificate -O %TMP%\SoPI\foobar2000-x64_v2.1.2.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\foobar2000-x64_v2.1.exe /S
+start /wait %TMP%\SoPI\foobar2000-x64_v2.1.2.exe /S
+echo Instalado
+ping -n 3 localhost>nul
+del /f /q %TMP%\SoPI\*.*
+cls
+goto winOS
+
+:winamp
+cls
+echo Descarga aprox. de [12+7 MB (+Lenguaje Pack)], presione cualquier tecla para confirmar
+pause>nul
+echo Descargando Winamp
+"%~dp0wget.exe" https://download.winamp.com/winamp/winamp_latest_full.exe --no-check-certificate -O %TMP%\SoPI\winamp_latest_full.exe
+cls
+echo Instalando espere...
+start /wait %TMP%\SoPI\winamp_latest_full.exe /S
+echo Instalado
+cls
+echo Descargando Lenguaje Pack
+"%~dp0wget.exe" https://download.nullsoft.com/winamp/client/Winamp_Language_Packs_v1.7.exe --no-check-certificate -O %TMP%\SoPI\Winamp_Language_Packs_v1.7.exe
+cls
+echo Instalando espere...
+start /wait %TMP%\SoPI\Winamp_Language_Packs_v1.7.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -536,10 +561,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [340 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando LibreOffice de 32 bits
-"%~dp0wget.exe" https://download.documentfoundation.org/libreoffice/stable/7.6.4/win/x86/LibreOffice_7.6.4_Win_x86.msi -O %TMP%\SoPI\LibreOffice_7.6.4_Win_x86.msi
+"%~dp0wget.exe" https://download.documentfoundation.org/libreoffice/stable/24.2.0/win/x86/LibreOffice_24.2.0_Win_x86.msi -O %TMP%\SoPI\LibreOffice_24.2.0_Win_x86.msi
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\LibreOffice_7.6.4_Win_x86.msi /passive
+start /wait %TMP%\SoPI\LibreOffice_24.2.0_Win_x86.msi /passive
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -549,10 +574,10 @@ goto winOS
 echo Descarga aprox. de [360 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando LibreOffice de 64 bits
-"%~dp0wget.exe" https://ftp.osuosl.org/pub/tdf/libreoffice/stable/7.6.4/win/x86_64/LibreOffice_7.6.4_Win_x86-64.msi -O %TMP%\SoPI\LibreOffice_7.6.4_Win_x86-64.msi
+"%~dp0wget.exe" https://ftp.osuosl.org/pub/tdf/libreoffice/stable/24.2.0/win/x86_64/LibreOffice_24.2.0_Win_x86-64.msi -O %TMP%\SoPI\LibreOffice_24.2.0_Win_x86-64.msi
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\LibreOffice_7.6.4_Win_x86-64.msi /passive
+start /wait %TMP%\SoPI\LibreOffice_24.2.0_Win_x86-64.msi /passive
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -687,7 +712,7 @@ cls
 echo Descarga aprox. de [29 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando VisualC++ AIO Recpack
-"%~dp0wget.exe" https://github.com/abbodi1406/vcredist/releases/download/v0.77.0/VisualCppRedist_AIO_x86_x64.exe --no-check-certificate -O %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
+"%~dp0wget.exe" https://github.com/abbodi1406/vcredist/releases/download/v0.78.0/VisualCppRedist_AIO_x86_x64.exe --no-check-certificate -O %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
 cls
 echo Instalando espere...
 start /wait %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
@@ -711,7 +736,7 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [14 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando DirectX Redist Repack de 32 bits
-"%~dp0wget.exe" https://github.com/stdin82/htfx/releases/download/v0.0.2/DirectX_Redist_Repack_x86.zip -O %TMP%\SoPI\DirX_RRx_86.zip
+"%~dp0wget.exe" https://github.com/stdin82/htfx/releases/download/v0.0.3/DirectX_Redist_Repack_x86_v2.zip -O %TMP%\SoPI\DirX_RRx_86.zip
 cls
 echo Descomprimiendo
 @pushd "%~dp0"
@@ -719,7 +744,7 @@ echo Descomprimiendo
 cls
 ping -n 3 localhost>nul
 echo Instalando espere...
-start /wait %TMP%\SoPI\DirX_RRx_86.zip /silent
+start /wait %TMP%\SoPI\DirectX_Redist_Repack_x86.exe
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -730,7 +755,7 @@ goto winOS
 echo Descarga aprox. de [26 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Redist Repack de 64 bits
-"%~dp0wget.exe" https://github.com/stdin82/htfx/releases/download/v0.0.2/DirectX_Redist_Repack_x86_x64.zip -O %TMP%\SoPI\DirX_RR_x64.zip
+"%~dp0wget.exe" https://github.com/stdin82/htfx/releases/download/v0.0.3/DirectX_Redist_Repack_x86_x64_v2.zip -O %TMP%\SoPI\DirX_RR_x64.zip
 cls
 echo Descomprimiendo...
 @pushd "%~dp0"
@@ -965,11 +990,9 @@ cls
 echo Descarga aprox. de [1 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Windows Update Blocker
-"%~dp0wget.exe" https://www.sordum.org/files/download/windows-update-blocker/Wub.zip -O %public%\Desktop\Wub.zip
+"%~dp0wget.exe" https://www.sordum.org/files/download/windows-update-blocker/Wub.zip -O %homedrive%\SoPI\Wub.zip
 cls
-echo Windows Update Blocker se ha guardado en el Escritorio
-echo.
-pause
+start %homedrive%\SoPI\
 cls
 goto winOS
 
@@ -978,11 +1001,9 @@ cls
 echo Descarga aprox. de [2.5 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Optimizer
-"%~dp0wget.exe" https://github.com/hellzerg/optimizer/releases/download/16.4/Optimizer-16.4.exe -O %public%\Desktop\Optimizer.exe
+"%~dp0wget.exe" https://github.com/hellzerg/optimizer/releases/download/16.4/Optimizer-16.4.exe -O %homedrive%\SoPI\Optimizer.exe
 cls
-echo Optimizer se ha guardado en el Escritorio
-echo.
-pause
+start %homedrive%\SoPI\
 cls
 goto winOS
 
@@ -1023,10 +1044,10 @@ title %~n0 - Proyectos
 mode con lines=20 cols=108
 cls
 echo.
-echo 1. SoPI: (Software Post Intall) Software esencial para Windows
+echo 1. SoPI: (Software Post Intall) Software offline esencial para Windows
 echo 2. DcManyTools (Explorador de archivos con mas de 500 herramientas gratuitas)
 echo 3. UnHIDER USBFile (Herramienta para desinfectar unidades extraibles)
-echo 4. Sitio web de Hiber Hernandez (Tecnpologia, software y descargas)
+echo 4. Tecnologia, software y descargas (hiberhernandez.com)
 echo 5. Regresar al menu
 echo.
 set /p hbz=Opcion: 
