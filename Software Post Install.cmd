@@ -310,10 +310,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [18 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Media Player Clasic de 32 bits
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.1.4/MPC-HC.2.1.4.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.1.4.x86.exe
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.2.1/MPC-HC.2.2.1.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.2.1.x86.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\MPC-HC.2.1.4.x86.exe /silent
+start /wait %TMP%\SoPI\MPC-HC.2.2.1.x86.exe /silent
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -323,10 +323,10 @@ goto winOS
 echo Descarga aprox. de [20 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Media Player Clasic de 64 bits
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.1.4/MPC-HC.2.1.4.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.1.4.x64.exe
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.2.1/MPC-HC.2.2.1.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.2.1.x64.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\MPC-HC.2.1.4.x64.exe /silent
+start /wait %TMP%\SoPI\MPC-HC.2.2.1.x64.exe /silent
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -369,10 +369,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [6 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando foobar2000 de 32 bits
-"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000_v2.1.2.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_v2.1.2.exe
+"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000_v2.1.4.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_v2.1.4.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\foobar2000_v2.1.2.exe /S
+start /wait %TMP%\SoPI\foobar2000_v2.1.4.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -382,10 +382,10 @@ goto winOS
 echo Descarga aprox. de [6 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando foobar2000 de 64 bits
-"%~dp0wget.exe" https://www.foobar2000.org/getfile/foobar2000-x64_v2.1.2.exe --no-check-certificate -O %TMP%\SoPI\foobar2000-x64_v2.1.2.exe
+"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000-x64_v2.1.4.exe --no-check-certificate -O %TMP%\SoPI\foobar2000-x64_v2.1.4.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\foobar2000-x64_v2.1.2.exe /S
+start /wait %TMP%\SoPI\foobar2000-x64_v2.1.4.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -443,10 +443,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [5 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando FocusOnImageViewer de 32 bits
-"%~dp0wget.exe" https://github.com/pintosoft/FocusOnImageViewer/releases/download/1.30/FocusOnIV_1.30.exe --no-check-certificate -O %TMP%\SoPI\FocusOnIV_1.29.exe
+"%~dp0wget.exe" https://github.com/pintosoft/FocusOnImageViewer/releases/download/1.31/FocusOnIV_1.31.exe --no-check-certificate -O %TMP%\SoPI\FocusOnIV.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\FocusOnIV_1.29.exe /S
+start /wait %TMP%\SoPI\FocusOnIV.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -456,10 +456,10 @@ goto winOS
 echo Descarga aprox. de [5 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando FocusOnImageViewer de 64 bits
-"%~dp0wget.exe" https://github.com/pintosoft/FocusOnImageViewer/releases/download/1.30/FocusOnIV64_1.30.exe --no-check-certificate -O %TMP%\SoPI\FocusOnIV64_1.29.exe
+"%~dp0wget.exe" https://github.com/pintosoft/FocusOnImageViewer/releases/download/1.31/FocusOnIV64_1.31.exe --no-check-certificate -O %TMP%\SoPI\FocusOnIV64.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\FocusOnIV64_1.29.exe /S
+start /wait %TMP%\SoPI\FocusOnIV64.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -468,13 +468,13 @@ goto winOS
 
 :sharex
 cls
-echo Descarga aprox. de [35 MB], presione cualquier tecla para confirmar
+echo Descarga aprox. de [38 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando ShareX
-"%~dp0wget.exe" https://github.com/ShareX/ShareX/releases/download/v15.0.0/ShareX-15.0.0-setup.exe --no-check-certificate -O %TMP%\SoPI\ShareX-15.0.0-setup.exe
+"%~dp0wget.exe" https://github.com/ShareX/ShareX/releases/download/v16.0.1/ShareX-16.0.1-setup.exe --no-check-certificate -O %TMP%\SoPI\ShareX-16.0.1-setup.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\ShareX-15.0.0-setup.exe /silent
+start /wait %TMP%\SoPI\ShareX-16.0.1-setup.exe /silent
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -483,13 +483,6 @@ goto winOS
 
 :paintn
 cls
-if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
-:x86
-echo Paint.NET no es compatible con sistemas de 32 bits
-pause
-cls
-goto winOS
-:x64
 echo Descarga aprox. de [65 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Paint.NET de 64 bits
@@ -499,14 +492,14 @@ if exist "%~dp07za.exe" (
 "%~dp0wget.exe" https://raw.githubusercontent.com/a-sync/7z-extra/master/7za.exe --no-check-certificate >nul
     )
 )
-"%~dp0wget.exe" https://github.com/paintdotnet/release/releases/download/v5.0.12/paint.net.5.0.12.install.x64.zip --no-check-certificate -O %TMP%\SoPI\paint.net.5.0.12.install.x64.zip
+"%~dp0wget.exe" https://github.com/paintdotnet/release/releases/download/v5.0.13/paint.net.5.0.13.install.x64.zip --no-check-certificate -O %TMP%\SoPI\paint.net.5.0.13.install.x64.zip
 cls
 echo Descomprimiendo...
 @pushd "%~dp0"
-@7za.exe x "%tmp%\SoPI\paint.net.5.0.12.install.x64.zip" -o%tmp%\SoPI\
+@7za.exe x "%tmp%\SoPI\paint.net.5.0.13.install.x64.zip" -o%tmp%\SoPI\
 cls
 echo Instalando
-start /wait %TEMP%\SoPI\paint.net.5.0.12.install.x64.exe
+start /wait %TEMP%\SoPI\paint.net.5.0.13.install.x64.exe
 echo Instalado
 ping -n 3 localhost>nul
 taskkill /f /im SetupFrontEnd.exe
@@ -712,7 +705,7 @@ cls
 echo Descarga aprox. de [29 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando VisualC++ AIO Recpack
-"%~dp0wget.exe" https://github.com/abbodi1406/vcredist/releases/download/v0.78.0/VisualCppRedist_AIO_x86_x64.exe --no-check-certificate -O %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
+"%~dp0wget.exe" https://github.com/abbodi1406/vcredist/releases/download/v0.81.0/VisualCppRedist_AIO_x86_x64.exe --no-check-certificate -O %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
 cls
 echo Instalando espere...
 start /wait %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
