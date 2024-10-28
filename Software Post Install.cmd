@@ -1,5 +1,5 @@
 @echo off
-title SoPI (Software Post Install)
+title SoPI v2024.10 (Software Post Install)
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 if '%errorlevel%' NEQ '0' (
 echo.
@@ -311,10 +311,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [18 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Media Player Clasic de 32 bits
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.3/MPC-HC.2.3.3.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.3.3.x86.exe
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.6/MPC-HC.2.3.6.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.3.6.x86.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\MPC-HC.2.3.3.x86.exe /silent
+start /wait %TMP%\SoPI\MPC-HC.2.3.6.x86.exe /silent
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -324,10 +324,10 @@ goto winOS
 echo Descarga aprox. de [20 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Media Player Clasic de 64 bits
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.3/MPC-HC.2.3.3.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.3.3.x64.exe
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.6/MPC-HC.2.3.6.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.3.6.x64.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\MPC-HC.2.3.3.x64.exe /silent
+start /wait %TMP%\SoPI\MPC-HC.2.3.6.x64.exe /silent
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -370,10 +370,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [6 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando foobar2000 de 32 bits
-"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000_v2.1.5.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_v2.1.5.exe
+"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000_v2.1.6.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_v2.1.6.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\foobar2000_v2.1.5.exe /S
+start /wait %TMP%\SoPI\foobar2000_v2.1.6.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -383,10 +383,10 @@ goto winOS
 echo Descarga aprox. de [6 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando foobar2000 de 64 bits
-"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000-x64_v2.1.5.exe --no-check-certificate -O %TMP%\SoPI\foobar2000-x64_v2.1.5.exe
+"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000-x64_v2.1.6.exe --no-check-certificate -O %TMP%\SoPI\foobar2000-x64_v2.1.6.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\foobar2000-x64_v2.1.5.exe /S
+start /wait %TMP%\SoPI\foobar2000-x64_v2.1.6.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -555,10 +555,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [340 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando LibreOffice de 32 bits
-"%~dp0wget.exe" https://download.documentfoundation.org/libreoffice/stable/24.2.5/win/x86/LibreOffice_24.2.5_Win_x86.msi -O %TMP%\SoPI\LibreOffice_24.2.5_Win_x86.msi
+"%~dp0wget.exe" https://download.documentfoundation.org/libreoffice/stable/24.8.2/win/x86/LibreOffice_24.8.2_Win_x86.msi -O %TMP%\SoPI\LibreOffice_24.8.2_Win_x86.msi
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\LibreOffice_24.2.5_Win_x86.msi /passive
+start /wait %TMP%\SoPI\LibreOffice_24.8.2_Win_x86.msi /passive
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -568,10 +568,10 @@ goto winOS
 echo Descarga aprox. de [360 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando LibreOffice de 64 bits
-"%~dp0wget.exe" https://ftp.osuosl.org/pub/tdf/libreoffice/stable/24.2.5/win/x86_64/LibreOffice_24.2.5_Win_x86-64.msi -O %TMP%\SoPI\LibreOffice_24.2.5_Win_x86-64.msi
+"%~dp0wget.exe" https://ftp.osuosl.org/pub/tdf/libreoffice/stable/24.8.2/win/x86_64/LibreOffice_24.8.2_Win_x86-64.msi -O %TMP%\SoPI\LibreOffice_24.8.2_Win_x86-64.msi
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\LibreOffice_24.2.5_Win_x86-64.msi /passive
+start /wait %TMP%\SoPI\LibreOffice_24.8.2_Win_x86-64.msi /passive
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -706,7 +706,7 @@ cls
 echo Descarga aprox. de [29 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando VisualC++ AIO Recpack
-"%~dp0wget.exe" https://github.com/abbodi1406/vcredist/releases/download/v0.81.0/VisualCppRedist_AIO_x86_x64.exe --no-check-certificate -O %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
+"%~dp0wget.exe" https://github.com/abbodi1406/vcredist/releases/download/v0.84.0/VisualCppRedist_AIO_x86_x64.exe --no-check-certificate -O %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
 cls
 echo Instalando espere...
 start /wait %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
@@ -880,10 +880,10 @@ echo Descarga aprox. de [1 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando 7-Zip de 32 bits
 echo.
-"%~dp0wget.exe" https://www.7-zip.org/a/7z2407.exe --no-check-certificate -O %TMP%\SoPI\7z2407.exe
+"%~dp0wget.exe" https://www.7-zip.org/a/7z2408.exe --no-check-certificate -O %TMP%\SoPI\7z2408.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\7z2407.exe /S
+start /wait %TMP%\SoPI\7z2408.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -894,10 +894,10 @@ echo Descarga aprox. de [1.5 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando 7-Zip de 64 bits
 echo.
-"%~dp0wget.exe" https://www.7-zip.org/a/7z2407-x64.exe --no-check-certificate -O %TMP%\SoPI\7z2407-x64.exe
+"%~dp0wget.exe" https://www.7-zip.org/a/7z2408-x64.exe --no-check-certificate -O %TMP%\SoPI\7z2408-x64.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\7z2407-x64.exe /S
+start /wait %TMP%\SoPI\7z2408-x64.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -911,10 +911,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [8 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando PeaZIP de 32 bits
-"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/9.8.0/peazip-9.8.0.WINDOWS.exe --no-check-certificate -O %TMP%\SoPI\peazip-9.8.0.WINDOWS.exe 
+"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/10.0.0/peazip-10.0.0.WINDOWS.exe --no-check-certificate -O %TMP%\SoPI\peazip-10.0.0.WINDOWS.exe 
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\peazip-9.8.0.WINDOWS.exe /silent
+start /wait %TMP%\SoPI\peazip-10.0.0.WINDOWS.exe /silent
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -924,10 +924,10 @@ goto winOS
 echo Descarga aprox. de [9 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando PeaZIP de 64 bits
-"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/9.8.0/peazip-9.8.0.WIN64.exe --no-check-certificate -O %TMP%\SoPI\peazip-9.8.0.WIN64.exe
+"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/10.0.0/peazip-10.0.0.WIN64.exe --no-check-certificate -O %TMP%\SoPI\peazip-10.0.0.WIN64.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\peazip-9.8.0.WIN64.exe /silent
+start /wait %TMP%\SoPI\peazip-10.0.0.WIN64.exe /silent
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -956,10 +956,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [1.5 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Everything de 32 bits
-"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1024.x86-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything-1.4.1.1024.x86-Setup.exe
+"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything-1.4.1.1026.x86-Setup.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\Everything-1.4.1.1024.x86-Setup.exe /S
+start /wait %TMP%\SoPI\Everything-1.4.1.1026.x86-Setup.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -969,10 +969,10 @@ goto winOS
 echo Descarga aprox. de [1.8 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Everything de 64 bits
-"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1024.x64-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything-1.4.1.1024.x64-Setup.exe
+"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1026.x64-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything-1.4.1.1026.x64-Setup.exe
 cls
 echo Instalando espere...
-start /wait %TMP%\SoPI\Everything-1.4.1.1024.x64-Setup.exe /S
+start /wait %TMP%\SoPI\Everything-1.4.1.1026.x64-Setup.exe /S
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
