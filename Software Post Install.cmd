@@ -984,7 +984,7 @@ cls
 echo Descarga aprox. de [1 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando Windows Update Blocker
-"%~dp0wget.exe" https://www.sordum.org/files/download/windows-update-blocker/Wub.zip -O %homedrive%\SoPI\Wub.zip
+"%~dp0wget.exe" https://drive.usercontent.google.com/download?id=1N_XtcQHA6iSMC8YvL0_WIJ6n2AH0wePf -O %homedrive%\SoPI\WUB.ZIP
 cls
 start %homedrive%\SoPI\
 cls
