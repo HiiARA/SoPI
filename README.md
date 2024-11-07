@@ -75,4 +75,4 @@ Algunos de los programas que encuentra en SoPI son navegadores web, antivirus, r
 ## Donar
 Probablemente esta pequeña herramienta haya facilitado tu trabajo, o mis otros proyectos te hayan beneficiado. Si es así, considere apoyarme comprándome una taza de café.
 
-<a href='https://ko-fi.com/F1F2H2KW' objetivo='_en blanco'><img altura='36' estilo='frontera: 0px; altura: 36)) px; ' src='https://storage.ko-fi.com/cdn/kofi2.png?v = 3 ' frontera='0' alt='Cómprame un café en ko-fi.com' /></a>
+<a href='https://ko-fi.com/F1F2H2KW' objetivo='_en blanco'><img altura='20' estilo='frontera: 0px; altura: 20)) px; ' src='https://storage.ko-fi.com/cdn/kofi2.png?v = 3 ' frontera='0' alt='Cómprame un café en ko-fi.com' /></a>
