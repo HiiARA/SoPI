@@ -706,7 +706,7 @@ cls
 echo Descarga aprox. de [29 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando VisualC++ AIO Recpack
-"%~dp0wget.exe" https://github.com/abbodi1406/vcredist/releases/download/v0.84.0/VisualCppRedist_AIO_x86_x64.exe --no-check-certificate -O %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
+"%~dp0wget.exe" https://github.com/abbodi1406/vcredist/releases/download/v0.85.0/VisualCppRedist_AIO_x86_x64.exe --no-check-certificate -O %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
 cls
 echo Instalando espere...
 start /wait %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
