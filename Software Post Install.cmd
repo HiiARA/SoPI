@@ -1,5 +1,5 @@
 @echo off
-title SoPI v2024.10 (Software Post Install)
+title SoPI v2024.11.10 (Software Post Install)
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 if '%errorlevel%' NEQ '0' (
 echo.
@@ -341,10 +341,10 @@ if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 echo Descarga aprox. de [15 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando AIMP de 32 bits
-"%~dp0wget.exe" https://aimp.ru/files/windows/builds/aimp_5.30.2533_w32.exe -O %TMP%\SoPI\aimp_5.30.2533_w32.exe
+"%~dp0wget.exe" https://aimp.ru/files/windows/builds/aimp_5.30.2563_w32.exe -O %TMP%\SoPI\aimp_32.exe
 cls
 echo Continue con la instalacion...
-start /wait %TMP%\SoPI\aimp_5.30.2533_w32.exe
+start /wait %TMP%\SoPI\aimp_32.exe
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
@@ -354,10 +354,10 @@ goto winOS
 echo Descarga aprox. de [19 MB], presione cualquier tecla para confirmar
 pause>nul
 echo Descargando AIMP de 64 bits
-"%~dp0wget.exe" https://aimp.ru/files/windows/builds/aimp_5.30.2533_w64.exe -O %TMP%\SoPI\aimp_5.30.2533_w64.exe
+"%~dp0wget.exe" https://aimp.ru/files/windows/builds/aimp_5.30.2563_w64.exe -O %TMP%\SoPI\aimp_64.exe
 cls
 echo Continue con la instalacion...
-start /wait %TMP%\SoPI\aimp_5.30.2533_w64.exe
+start /wait %TMP%\SoPI\aimp_64.exe
 echo Instalado
 ping -n 3 localhost>nul
 del /f /q %TMP%\SoPI\*.*
