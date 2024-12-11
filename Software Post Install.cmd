@@ -1,5 +1,4 @@
 @echo off
-title SoPI v2024.11.10 (Software Post Install)
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 if '%errorlevel%' NEQ '0' (
 echo.
@@ -40,8 +39,7 @@ goto :cat
     )
 )
 :M_SoPI
-title SoPI (Software Post Install)
-mode con lines=40 cols=108&color 0a
+mode con lines=37 cols=110&color 0a
 :variables
 set g=[92m
 set u=[0m
@@ -65,22 +63,23 @@ echo 			╚═══════════════════════
 echo.
 echo.
 echo.
+
 :cat
-title SoPI (Software Post Install)
+title SoPI (Software Post Install) v24.12.11
 echo Categorias:
 echo.
 echo 	[1] Navegadores web      [4] Ofimatica		[7] Herramientas
 echo.
-echo 	[2] Multimedia	 	 [5] Runtimes           [8] Acerca de
+echo 	[2] Multimedia	 	 [5] Runtimes           [8] Internet
 echo.
-echo.	[3] Graficos		 [6] Seguridad          [9] Otros proyectos
+echo.	[3] Graficos		 [6] Seguridad          [9] Acerca de
 echo.
 echo.
 if not exist "%tmp%/SoPI/" md "%tmp%/SoPI/"
 if not exist "%homedrive%/SoPI/" md "%homedrive%/SoPI/"
 choice /C:123456789 /N /M "choice | Seleccione una categoria:"
-if errorlevel 9 goto:proyectos
-if errorlevel 8 goto:about
+if errorlevel 9 goto:about
+if errorlevel 8 goto:internet
 if errorlevel 7 goto:herramientas
 if errorlevel 6 goto:seguridad
 if errorlevel 5 goto:runtimes
@@ -100,7 +99,8 @@ echo [3] Microsoft Edge
 echo [4] Brave (Windows 10/11)
 echo [5] OperaOne
 echo [6] OperaGX
-echo [7] Regresar
+echo.
+echo  -Presiona 0 para regresar al menu principal
 echo.										
 set /p hbz=Opcion: 
 if "%hbz%"=="1" goto google
@@ -109,7 +109,7 @@ if "%hbz%"=="3" goto edge
 if "%hbz%"=="4" goto brave
 if "%hbz%"=="5" goto opera1
 if "%hbz%"=="6" goto operagx
-if "%hbz%"=="7" goto winOS
+if "%hbz%"=="0" goto winOS
 echo Opcion invalida
 pause>nul
 cls
@@ -118,137 +118,135 @@ goto navegadores
 :google
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
+
 :x86
-echo Descarga aprox. de 1.3 MB. Presione cualquier tecla para continuar
-pause>nul
-echo Descargando Google Chrome de 32 bits
-"%~dp0wget.exe" https://hiberhernandez.com/sopi/wp-content/uploads/2023/12/ChromeSetup86.exe --no-check-certificate -O %TMP%\SoPI\ChromeSetup86.exe
+call :dw echo "Google Chrome (x86) Tamaño aproximado de descarga 1.3 MB"
+if %confirm%==1 goto ix86
+goto navegadores
+:ix86
 cls
-echo Descargando/Instalando espere...
+echo Descargando...
+"%~dp0wget.exe" "https://hiberhernandez.com/sopi/wp-content/uploads/2023/12/ChromeSetup86.exe" --no-check-certificate -O %TMP%\SoPI\ChromeSetup86.exe
+cls
+echo Instalando, espere...
 start /wait %TMP%\SoPI\ChromeSetup86.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
+
 :x64
-echo Descarga aprox. de [1.3 MB]. Presione cualquier tecla para continuar
-pause>nul
-echo Descargando Google Chrome de 64 bits
-"%~dp0wget.exe" https://hiberhernandez.com/sopi/wp-content/uploads/2023/12/ChromeSetup.exe --no-check-certificate -O %TMP%\SoPI\ChromeSetup.exe
+call :dw echo "Google Chrome (x64) Tamaño aproximado de descarga 1.3 MB"
+if %confirm%==1 goto ix64
+goto navegadores
+:ix64
 cls
-echo Descargando/Instalando espere...
+echo Descargando...
+"%~dp0wget.exe" "https://hiberhernandez.com/sopi/wp-content/uploads/2023/12/ChromeSetup.exe" --no-check-certificate -O %TMP%\SoPI\ChromeSetup.exe
+cls
+echo Instalando, espere...
 start /wait %TMP%\SoPI\ChromeSetup.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :firefox
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
+
 :x86
-echo Descarga aprox. de [58 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Mozilla Firefox de 32 bits
+call :dw echo "Mozilla Firefox (x86) Tamaño aproximado de descarga 58 MB"
+if %confirm%==1 goto ix86
+goto navegadores
+:ix86
+cls
+echo Descargando...
 "%~dp0wget.exe" "https://download.mozilla.org/?product=firefox-latest-ssl&os=win&lang=es-ES" -O %TMP%\SoPI\FirefoxSetup_x86.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\FirefoxSetup_x86.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
+
+
 :x64
-echo Descarga aprox. de [60 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Mozilla Firefox de 64 bits
+call :dw echo "Mozilla Firefox (x64) Tamaño aproximado de descarga 60 MB"
+if %confirm%==1 goto ix64
+goto navegadores
+:ix64
+cls
+echo Descargando...
 "%~dp0wget.exe" "https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=es-ES" -O %TMP%\SoPI\FirefoxSetup_x64.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\FirefoxSetup_x64.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :edge
 cls
-echo Descarga aprox. de [1.6 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Microsoft Edge
+call :dw echo "Microsoft Edge. Tamaño aproximado de descarga 1.6 MB"
+if %confirm%==1 goto ixe
+goto navegadores
+:ixe
+cls
+echo Descargando...
 "%~dp0wget.exe" "https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?platform=Default&source=EdgeStablePage&Channel=Stable&language=es-419&brand=M100" -O %TMP%\SoPI\MicrosoftEdgeSetup.exe
 cls
-echo Descargando/Instalando...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\MicrosoftEdgeSetup.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
-:Brave
+:brave
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
+
 :x86
-echo Descarga aprox. de [1.4 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Brave de 32 bits
+call :dw echo "Brave (x86) Tamaño aproximado de descarga 1.4 MB"
+if %confirm%==1 goto ix86
+goto navegadores
+:ix86
+cls
+echo Descargando...
 "%~dp0wget.exe" https://referrals.brave.com/latest/BraveBrowserSetup32-BRV001.exe -O %TMP%\SoPI\BraveBrowserSetup32-BRV001.exe
 cls
-echo Descargando/Instalando...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\BraveBrowserSetup32-BRV001.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
+
 :x64
-echo Descarga aprox. de [1.4 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Brave de 64 bits
+call :dw echo "Brave (x64) Tamaño aproximado de descarga 1.4 MB"
+if %confirm%==1 goto ix64
+goto navegadores
+:ix64
+cls
+echo Descargando...
 "%~dp0wget.exe" https://referrals.brave.com/latest/BraveBrowserSetup-BRV001.exe -O %TMP%\SoPI\BraveBrowserSetup-BRV001.exe
 cls
-echo Descargando/Instalando...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\BraveBrowserSetup-BRV001.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :opera1
 cls
-echo Descarga aprox. de [2.7 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando OperaOne
+call :dw echo "Opera One. Tamaño aproximado de descarga 2.7 MB"
+if %confirm%==1 goto ixe
+goto navegadores
+:ixe
+cls
+echo Descargando...
 "%~dp0wget.exe" "https://net.geo.opera.com/opera/stable/windows?utm_source=mg&utm_medium=apb&utm_campaign=downloadpage" -O %TMP%\SoPI\OperaOne.exe
 cls
-echo Continue con la instalacion...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\OperaOne.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :operagx
 cls
-echo Descarga aprox. de [3.4 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando OperaGX
+call :dw echo "Opera GX. Tamaño aproximado de descarga 3.4 MB"
+if %confirm%==1 goto ixe
+goto navegadores
+:ixe
+cls
+echo Descargando...
 "%~dp0wget.exe" "https://net.geo.opera.com/opera_gx/stable/windows?utm_tryagain=yes&utm_source=(direct)&utm_medium=doc&utm_campaign=(direct)&http_referrer=missing&utm_site=opera_com&&utm_lastpage=opera.com/gx" -O %TMP%\SoPI\OperaGX.exe
 cls
-echo Continue con la instalacion...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\OperaGX.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :multimedia
 title %~n0 - Categoria: Multimedia
@@ -260,15 +258,16 @@ echo [2] Media Player Clasic
 echo [3] AIMP
 echo [4] foobar2000
 echo [5] Winamp
-echo [6] Regresar
 echo.
+echo  -Presiona 0 para regresar al menu principal
+echo.										
 set /p hbz=Opcion: 
 if "%hbz%"=="1" goto vlc
 if "%hbz%"=="2" goto mpc
 if "%hbz%"=="3" goto aimp
 if "%hbz%"=="4" goto foobar
 if "%hbz%"=="5" goto winamp
-if "%hbz%"=="6" goto winOS
+if "%hbz%"=="0" goto winOS
 echo Opcion invalida
 pause>nul
 cls
@@ -278,142 +277,142 @@ goto multimedia
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [42.8 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando VLC Media Player de 32 bits
-"%~dp0wget.exe" https://get.videolan.org/vlc/3.0.21/win32/vlc-3.0.21-win32.exe --no-check-certificate -O %TMP%\SoPI\vlc-3.0.21-win32.exe
+call :dw echo "VLC Media Player (x86) Tamaño aproximado de descarga 42 MB"
+if %confirm%==1 goto ix86
+goto multimedia
+:ix86
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\vlc-3.0.21-win32.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+"%~dp0wget.exe" https://get.videolan.org/vlc/3.0.21/win32/vlc-3.0.21-win32.exe --no-check-certificate -O %TMP%\SoPI\vlc_x86.exe
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\vlc_x86.exe /S
+call :ic
+
+
 :x64
-echo Descarga aprox. de [44.4 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando VLC Media Player de 64 bits
-"%~dp0wget.exe" https://get.videolan.org/vlc/3.0.21/win64/vlc-3.0.21-win64.exe --no-check-certificate -O %TMP%\SoPI\vlc-3.0.21-win64.exe
+call :dw echo "VLC Media Player (x64) Tamaño aproximado de descarga 44 MB"
+if %confirm%==1 goto ix64
+goto multimedia
+:ix64
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\vlc-3.0.21-win64.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+"%~dp0wget.exe" https://get.videolan.org/vlc/3.0.21/win64/vlc-3.0.21-win64.exe --no-check-certificate -O %TMP%\SoPI\vlc_x64.exe
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\vlc_x64.exe /S
+call :ic
 
 :mpc
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [18 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Media Player Clasic de 32 bits
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.6/MPC-HC.2.3.6.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.3.6.x86.exe
+call :dw echo "Media Player Clasic (x86) Tamaño aproximado de descarga 18 MB"
+if %confirm%==1 goto ix86
+goto multimedia
+:ix86
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\MPC-HC.2.3.6.x86.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+echo.
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.8/MPC-HC.2.3.8.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC_x86.exe
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\MPC_x86.exe /silent
+call :ic
+
 :x64
-echo Descarga aprox. de [20 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Media Player Clasic de 64 bits
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.6/MPC-HC.2.3.6.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC-HC.2.3.6.x64.exe
+call :dw echo "Media Player Clasic (x64) Tamaño aproximado de descarga 20 MB"
+if %confirm%==1 goto ix64
+goto multimedia
+:ix64
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\MPC-HC.2.3.6.x64.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+echo.
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.6/MPC-HC.2.3.6.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC_x64.exe
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\MPC_x64.exe /silent
+call :ic
 
 :aimp
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [15 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando AIMP de 32 bits
+call :dw echo "AIMP (x86) Tamaño aproximado de descarga 15 MB"
+if %confirm%==1 goto ix86
+goto multimedia
+:ix86
+cls
+echo Descargando...
 "%~dp0wget.exe" https://aimp.ru/files/windows/builds/aimp_5.30.2563_w32.exe -O %TMP%\SoPI\aimp_32.exe
 cls
-echo Continue con la instalacion...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\aimp_32.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
+
 :x64
-echo Descarga aprox. de [19 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando AIMP de 64 bits
+call :dw echo "AIMP (x64) Tamaño aproximado de descarga 19 MB"
+if %confirm%==1 goto ix64
+goto multimedia
+:ix64
+cls
+echo Descargando...
 "%~dp0wget.exe" https://aimp.ru/files/windows/builds/aimp_5.30.2563_w64.exe -O %TMP%\SoPI\aimp_64.exe
 cls
-echo Continue con la instalacion...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\aimp_64.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-goto winOS
+call :ic
 
 :foobar
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [6 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando foobar2000 de 32 bits
-"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000_v2.1.6.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_v2.1.6.exe
+call :dw echo "foobar (x86) Tamaño aproximado de descarga 6 MB"
+if %confirm%==1 goto ix86
+goto multimedia
+:ix86
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\foobar2000_v2.1.6.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+"%~dp0wget.exe" https://www.foobar2000.org/getfile/foobar2000_v2.24.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_x86.exe
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\foobar2000_x86.exe /S
+call :ic
+
 :x64
-echo Descarga aprox. de [6 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando foobar2000 de 64 bits
-"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000-x64_v2.1.6.exe --no-check-certificate -O %TMP%\SoPI\foobar2000-x64_v2.1.6.exe
+call :dw echo "foobar (x64) Tamaño aproximado de descarga 6 MB"
+if %confirm%==1 goto ix64
+goto multimedia
+:ix64
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\foobar2000-x64_v2.1.6.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+"%~dp0wget.exe" https://www.foobar2000.org/getfile/foobar2000-x64_v2.24.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_x64.exe
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\foobar2000_x64.exe /S
+call :ic
 
 :winamp
 cls
-echo Descarga aprox. de [12+7 MB (+Lenguaje Pack)], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Winamp
+call :dw echo "Winamp + Lenguaje Tamaño aproximado de descarga 12+7 MB"
+if %confirm%==1 goto ixa
+goto multimedia
+:ixa
+cls
+echo Descargando...
 "%~dp0wget.exe" https://download.winamp.com/winamp/winamp_latest_full.exe --no-check-certificate -O %TMP%\SoPI\winamp_latest_full.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\winamp_latest_full.exe /S
-echo Instalado
+echo Instalación completa
+ping -n 3 localhost>nul
 cls
 echo Descargando Lenguaje Pack
 "%~dp0wget.exe" https://download.nullsoft.com/winamp/client/Winamp_Language_Packs_v1.7.exe --no-check-certificate -O %TMP%\SoPI\Winamp_Language_Packs_v1.7.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\Winamp_Language_Packs_v1.7.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :graficos
 title %~n0 - Categoria: Graficos
@@ -422,16 +421,19 @@ cls
 echo.
 echo [1] FocusOnImageViewer
 echo [2] ShareX
-echo [3] Paint.NET (64 bits)
-echo [4] Lightshot
-echo [5] Regresar
+echo [3] Lightshot
+echo [4] Paint.NET (64 bits)
+echo [5] GIMP
 echo.
+echo  -Presiona 0 para regresar al menu principal
+echo.										
 set /p hbz=Opcion: 
 if "%hbz%"=="1" goto foiv
 if "%hbz%"=="2" goto sharex
-if "%hbz%"=="3" goto paintn
-if "%hbz%"=="4" goto lgts
-if "%hbz%"=="5" goto winOS
+if "%hbz%"=="3" goto lgts
+if "%hbz%"=="4" goto paintn
+if "%hbz%"=="5" goto gimp
+if "%hbz%"=="0" goto winOS
 echo Opcion invalida
 pause>nul
 cls
@@ -441,88 +443,91 @@ goto graficos
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [5 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando FocusOnImageViewer de 32 bits
+call :dw echo "FocusOnImageViewer (x86) Tamaño aproximado de descarga 5 MB"
+if %confirm%==1 goto ix86
+goto graficos
+:ix86
+cls
+echo Descargando...
 "%~dp0wget.exe" https://github.com/pintosoft/FocusOnImageViewer/releases/download/1.31/FocusOnIV_1.31.exe --no-check-certificate -O %TMP%\SoPI\FocusOnIV.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\FocusOnIV.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 :x64
-echo Descarga aprox. de [5 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando FocusOnImageViewer de 64 bits
+call :dw echo "FocusOnImageViewer (x64) Tamaño aproximado de descarga 5 MB"
+if %confirm%==1 goto ix64
+goto graficos
+:ix64
+cls
+echo Descargando...
 "%~dp0wget.exe" https://github.com/pintosoft/FocusOnImageViewer/releases/download/1.31/FocusOnIV64_1.31.exe --no-check-certificate -O %TMP%\SoPI\FocusOnIV64.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\FocusOnIV64.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :sharex
 cls
-echo Descarga aprox. de [38 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando ShareX
-"%~dp0wget.exe" https://github.com/ShareX/ShareX/releases/download/v16.1.0/ShareX-16.1.0-setup.exe --no-check-certificate -O %TMP%\SoPI\ShareX-16.1.0-setup.exe
+call :dw echo "ShareX. Tamaño aproximado de descarga 38 MB"
+if %confirm%==1 goto ixs
+goto graficos
+:ixs
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\ShareX-16.1.0-setup.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+"%~dp0wget.exe" https://github.com/ShareX/ShareX/releases/download/v16.1.0/ShareX-16.1.0-setup.exe --no-check-certificate -O %TMP%\SoPI\ShareX-setup.exe
 cls
-goto winOS
-
-:paintn
-cls
-echo Descarga aprox. de [65 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Paint.NET de 64 bits
-if exist "%~dp07za.exe" (
-    echo.
-  ) else (
-"%~dp0wget.exe" https://raw.githubusercontent.com/a-sync/7z-extra/master/7za.exe --no-check-certificate >nul
-    )
-)
-"%~dp0wget.exe" https://github.com/paintdotnet/release/releases/download/v5.0.13/paint.net.5.0.13.install.x64.zip --no-check-certificate -O %TMP%\SoPI\paint.net.5.0.13.install.x64.zip
-cls
-echo Descomprimiendo...
-@pushd "%~dp0"
-@7za.exe x "%tmp%\SoPI\paint.net.5.0.13.install.x64.zip" -o%tmp%\SoPI\
-cls
-echo Instalando
-start /wait %TEMP%\SoPI\paint.net.5.0.13.install.x64.exe
-echo Instalado
-ping -n 3 localhost>nul
-taskkill /f /im SetupFrontEnd.exe
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\ShareX-setup.exe /silent
+call :ic
 
 :lgts
 cls
-echo Descarga aprox. de [3 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Lightshot
+call :dw echo "Lightshot. Tamaño aproximado de descarga 3 MB"
+if %confirm%==1 goto ixl
+goto graficos
+:ixl
+cls
+echo Descargando...
 "%~dp0wget.exe" https://app.prntscr.com/build/setup-lightshot.exe --no-check-certificate -O %TMP%\SoPI\lightshot.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\lightshot.exe /silent
-ping -n 4 localhost>nul
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+call :ic
+
+:paintn
+call :ds
 cls
-goto winOS
+call :dw echo "Paint.NET (x64) Tamaño aproximado de descarga 65 MB"
+if %confirm%==1 goto ix64
+goto graficos
+:ix64
+cls
+echo Descargando...
+"%~dp0wget.exe" https://github.com/paintdotnet/release/releases/download/v5.1.1/paint.net.5.1.1.install.x64.zip --no-check-certificate -O %TMP%\SoPI\paint.net_x64.zip
+cls
+echo Descomprimiendo...
+@pushd "%~dp0"
+@7za.exe x "%tmp%\SoPI\paint_x64.zip" -o%tmp%\SoPI\
+cls
+echo Instalando
+start /wait %TEMP%\SoPI\paint_x64.exe
+taskkill /f /im SetupFrontEnd.exe
+call :ic
+
+:gimp
+cls
+call :dw echo "GIMP. Tamaño aproximado de descarga 330 MB"
+if %confirm%==1 goto ixg
+goto graficos
+:ixg
+cls
+echo Descargando...
+"%~dp0wget.exe" https://download.gimp.org/gimp/v2.10/windows/gimp-2.10.38-setup-1.exe --no-check-certificate -O %TMP%\SoPI\GIMP.exe
+cls
+echo Instalando, espere...
+start /wait %TMP%\SoPI\GIMP.exe /silent
+call :ic
 
 :ofimatica
 title %~n0 - Categoria: Oficina
@@ -534,15 +539,16 @@ echo [2] ONLYOFFICE
 echo [3] FreeOffice
 echo [4] SumatraPDF
 echo [5] Foxit Reader
-echo [6] Regresar
 echo.
+echo  -Presiona 0 para regresar al menu principal
+echo.										
 set /p hbz=Opcion: 
 if "%hbz%"=="1" goto libreo
 if "%hbz%"=="2" goto onlyo
 if "%hbz%"=="3" goto freeo
 if "%hbz%"=="4" goto sumatra
 if "%hbz%"=="5" goto foxit
-if "%hbz%"=="6" goto winOS
+if "%hbz%"=="0" goto winOS
 echo Opcion invalida
 pause>nul
 cls
@@ -552,119 +558,118 @@ goto ofimatica
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [340 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando LibreOffice de 32 bits
-"%~dp0wget.exe" https://download.documentfoundation.org/libreoffice/stable/24.8.2/win/x86/LibreOffice_24.8.2_Win_x86.msi -O %TMP%\SoPI\LibreOffice_24.8.2_Win_x86.msi
+call :dw echo "LibreOffice (x86) Tamaño aproximado de descarga 340 MB"
+if %confirm%==1 goto ix86
+goto ofimatica
+:ix86
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\LibreOffice_24.8.2_Win_x86.msi /passive
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+"%~dp0wget.exe" https://download.documentfoundation.org/libreoffice/stable/24.8.3/win/x86/LibreOffice_24.8.3_Win_x86.msi -O %TMP%\SoPI\LibreOffice_x86.msi
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\LibreOffice_x86.msi /passive
+call :ic
+
 :x64
-echo Descarga aprox. de [360 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando LibreOffice de 64 bits
-"%~dp0wget.exe" https://ftp.osuosl.org/pub/tdf/libreoffice/stable/24.8.2/win/x86_64/LibreOffice_24.8.2_Win_x86-64.msi -O %TMP%\SoPI\LibreOffice_24.8.2_Win_x86-64.msi
+call :dw echo "LibreOffice (x64) Tamaño aproximado de descarga 360 MB"
+if %confirm%==1 goto ix64
+goto ofimatica
+:ix64
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\LibreOffice_24.8.2_Win_x86-64.msi /passive
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+"%~dp0wget.exe" https://ftp.osuosl.org/pub/tdf/libreoffice/stable/24.8.3/win/x86_64/LibreOffice_24.8.3_Win_x86-64.msi -O %TMP%\SoPI\LibreOffice_x64.msi
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\LibreOffice_x64.msi /passive
+call :ic
 
 :onlyo
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [233 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando ONLYOFFICE de 32 bits
+call :dw echo "ONLYOFFICE (x86) Tamaño aproximado de descarga 233 MB"
+if %confirm%==1 goto ix86
+goto ofimatica
+:ix86
+cls
+echo Descargando...
 "%~dp0wget.exe" https://download.onlyoffice.com/install/desktop/editors/windows/distrib/onlyoffice/DesktopEditors_x86.exe --no-check-certificate -O %TMP%\SoPI\DesktopEditors_x86.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\DesktopEditors_x86.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
+
+
 :x64
-echo Descarga aprox. de [254 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando ONLYOFFICE de 64 bits
+call :dw echo "ONLYOFFICE (x64) Tamaño aproximado de descarga 254 MB"
+if %confirm%==1 goto ix64
+goto ofimatica
+:ix64
+cls
+echo Descargando...
 "%~dp0wget.exe" https://download.onlyoffice.com/install/desktop/editors/windows/distrib/onlyoffice/DesktopEditors_x64.exe --no-check-certificate -O %TMP%\SoPI\DesktopEditors_x64.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\DesktopEditors_x64.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :freeo
 cls
-echo Descarga aprox. de [124 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando FreeOffice
-"%~dp0wget.exe" https://www.freeoffice.com/download.php?filename=https://www.softmaker.net/down/freeoffice2021.msi --no-check-certificate -O %TMP%\SoPI\freeoffice2021.msi
+call :dw echo "FreeOffice. Tamaño aproximado de descarga 124 MB"
+if %confirm%==1 goto ixf
+goto ofimatica
+:ixf
 cls
-echo Instalando espere...
+echo Descargando...
+"%~dp0wget.exe" https://www.freeoffice.com/download.php?filename=https://www.softmaker.net/down/freeoffice2024.msi --no-check-certificate -O %TMP%\SoPI\freeoffice2021.msi
+cls
+echo Instalando, espere...
 start /wait %TMP%\SoPI\freeoffice2021.msi /passive
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :sumatra
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [7 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando SumatraPDF de 32 bits
+call :dw echo "SumatraPDF (x86) Tamaño aproximado de descarga 7 MB"
+if %confirm%==1 goto ix86
+goto ofimatica
+:ix86
+cls
+echo Descargando...
 "%~dp0wget.exe" https://www.sumatrapdfreader.org/dl/rel/3.5.1/SumatraPDF-3.5.1-install.exe --no-check-certificate -O %TMP%\SoPI\SumatraPDF-3.5.1-install.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\SumatraPDF-3.5.1-install.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-goto winOS
+call :ic
+
 :x64
-echo Descarga aprox. de [8 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando SumatraPDF de 64 bits
+call :dw echo "SumatraPDF (x64) Tamaño aproximado de descarga 8 MB"
+if %confirm%==1 goto ix64
+goto ofimatica
+:ix64
+cls
+echo Descargando...
 "%~dp0wget.exe" https://www.sumatrapdfreader.org/dl/rel/3.5.1/SumatraPDF-3.5.1-64-install.exe --no-check-certificate -O %TMP%\SoPI\SumatraPDF-3.5.1-64-install.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\SumatraPDF-3.5.1-64-install.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-goto winOS
+call :ic
+
 
 :foxit
 cls
-echo Descarga aprox. de [153 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Foxit Reader
+call :dw echo "Foxit Reader. Tamaño aproximado de descarga 153 MB"
+if %confirm%==1 goto ixfo
+goto ofimatica
+:ixfo
+cls
+echo Descargando...
 "%~dp0wget.exe" https://cdn78.foxitsoftware.com/product/reader/desktop/win/2023.3.0/FoxitPDFReader20233_L10N_Setup_Prom.exe --no-check-certificate -O %TMP%\SoPI\FoxitPDFReader20233_L10N_Setup_Prom.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\FoxitPDFReader20233_L10N_Setup_Prom.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :runtimes
 title %~n0 - Categoria: runtimes
@@ -674,13 +679,14 @@ echo.
 echo [1] NetFramework 4.8
 echo [2] VisualC++ AIO Recpack
 echo [3] DirectX Redist Repack
-echo [4] Regresar
 echo.
+echo  -Presiona 0 para regresar al menu principal
+echo.										
 set /p hbz=Opcion: 
 if "%hbz%"=="1" goto netf
 if "%hbz%"=="2" goto visualc
 if "%hbz%"=="3" goto directx
-if "%hbz%"=="4" goto winOS
+if "%hbz%"=="0" goto winOS
 echo Opcion invalida
 pause>nul
 cls
@@ -688,33 +694,31 @@ goto runtimes
 
 :netf
 cls
-echo Descarga aprox. de [121 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando NetFramework 4.8
+call :dw echo "NetFramework 4.8. Tamaño aproximado de descarga 121 MB"
+if %confirm%==1 goto ixnt
+goto runtimes
+:ixnt
+cls
+echo Descargando...
 "%~dp0wget.exe" https://download.visualstudio.microsoft.com/download/pr/2d6bb6b2-226a-4baa-bdec-798822606ff1/8494001c276a4b96804cde7829c04d7f/ndp48-x86-x64-allos-enu.exe --no-check-certificate -O %TMP%\SoPI\ndp48-x86-x64-allos-enu.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\ndp48-x86-x64-allos-enu.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :visualc
 cls
-echo Descarga aprox. de [29 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando VisualC++ AIO Recpack
+call :dw echo "VisualC++ AIO Recpack. Tamaño aproximado de descarga 29 MB"
+if %confirm%==1 goto ixv
+goto runtimes
+:ixv
+cls
+echo Descargando...
 "%~dp0wget.exe" https://github.com/abbodi1406/vcredist/releases/download/v0.85.0/VisualCppRedist_AIO_x86_x64.exe --no-check-certificate -O %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :directx
 cls
@@ -727,42 +731,38 @@ if exist "%~dp07za.exe" (
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [14 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando DirectX Redist Repack de 32 bits
+call :dw echo "DirectX Redist Repack (x86) Tamaño aproximado de descarga 14 MB"
+if %confirm%==1 goto ix86
+goto runtimes
+:ix86
+cls
+echo Descargando...
 "%~dp0wget.exe" https://github.com/stdin82/htfx/releases/download/v0.0.3/DirectX_Redist_Repack_x86_v2.zip -O %TMP%\SoPI\DirX_RRx_86.zip
 cls
 echo Descomprimiendo
 @pushd "%~dp0"
 @7za.exe x "%tmp%\SoPI\DirX_RR_x86.zip" -o"%tmp%\SoPI\"
 cls
-ping -n 3 localhost>nul
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\DirectX_Redist_Repack_x86.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :x64
-echo Descarga aprox. de [26 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Redist Repack de 64 bits
+call :dw echo "DirectX Redist Repack (x64) Tamaño aproximado de descarga 26 MB"
+if %confirm%==1 goto ix64
+goto runtimes
+:ix64
+cls
+echo Descargando...
 "%~dp0wget.exe" https://github.com/stdin82/htfx/releases/download/v0.0.3/DirectX_Redist_Repack_x86_x64_v2.zip -O %TMP%\SoPI\DirX_RR_x64.zip
 cls
-echo Descomprimiendo...
+echo Descomprimiendo
 @pushd "%~dp0"
-@7za.exe x "%tmp%\SoPI\DirX_RR_x64.zip" -o"%tmp%\SoPI\"
+@7za.exe x "%tmp%\SoPI\DirX_RR_x86.zip" -o"%tmp%\SoPI\"
 cls
-ping -n 3 localhost>nul
-echo Instalando espere...
+echo Instalando, espere...
 @start /wait %tmp%\SoPI\DirectX_Redist_Repack_x86_x64.exe
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :seguridad
 title %~n0 - Categoria: Seguridad/Antivirus
@@ -771,14 +771,21 @@ cls
 echo.
 echo [1] 360 Total Security
 echo [2] Avast Free
-echo [3] Microsoft Security Essentials (Windows 7)
-echo [4] Regresar
+echo [3] BitDefender
+echo [4] Malwarebytes
+echo [5] Malwarebytes AdwCleaner
+echo [6] Microsoft Security Essentials (Windows 7)
 echo.
+echo  -Presiona 0 para regresar al menu principal
+echo.										
 set /p hbz=Opcion: 
 if "%hbz%"=="1" goto 360
 if "%hbz%"=="2" goto avast
-if "%hbz%"=="3" goto mse
-if "%hbz%"=="4" goto winOS
+if "%hbz%"=="3" goto bitd
+if "%hbz%"=="4" goto mbt
+if "%hbz%"=="5" goto mbac
+if "%hbz%"=="6" goto mse
+if "%hbz%"=="0" goto winOS
 echo Opcion invalida
 pause>nul
 cls
@@ -786,63 +793,102 @@ goto seguridad
 
 :360
 cls
-echo Descarga aprox. de [101 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando 360 Total Security
+call :dw echo "360 Total Security. Tamaño aproximado de descarga 101 MB"
+if %confirm%==1 goto ix3
+goto seguridad
+:ix3
+cls
+echo Descargando...
 "%~dp0wget.exe" https://free.360totalsecurity.com/totalsecurity/360TS_Setup.exe --no-check-certificate -O %TMP%\SoPI\360TS_Setup.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\360TS_Setup.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :avast
 cls
-echo Descarga aprox. de [648 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Avast Free
+call :dw echo "Avast Free. Tamaño aproximado de descarga 648 MB"
+if %confirm%==1 goto ixav
+goto seguridad
+:ixav
+cls
+echo Descargando...
 "%~dp0wget.exe" https://bits.avcdn.net/productfamily_ANTIVIRUS/insttype_FREE/platform_WIN/installertype_FULL/build_RELEASE/ -O %TMP%\SoPI\AvastOff.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\AvastOff.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+call :ic
+
+:bitd
 cls
-goto winOS
+call :dw echo "BitDefender Free. Tamaño aproximado de descarga 13 MB"
+if %confirm%==1 goto ixdfe
+goto seguridad
+:ixdfe
+cls
+echo Descargando...
+"%~dp0wget.exe" "https://download.bitdefender.com/windows/installer/en-us/bitdefender_avfree.exe" -O %TMP%\SoPI\avfree.exe
+cls
+echo Instalando, espere...
+start /wait %TMP%\SoPI\avfree.exe /silent
+call :ic
+
+:mbt
+cls
+call :dw echo "Malwarebytes. Tamaño aproximado de descarga 2.6 MB"
+if %confirm%==1 goto ixdfe
+goto seguridad
+:ixdfe
+cls
+echo Descargando...
+"%~dp0wget.exe" "https://data-cdn.mbamupdates.com/web/mb5-setup-consumer/MBSetup.exe" -O %TMP%\SoPI\MBSetup.exe
+cls
+echo Instalando, espere...
+start /wait %TMP%\SoPI\MBSetup.exe /silent
+call :ic
+
+:mbac
+cls
+call :dw echo "Malwarebytes AdwCleaner. Tamaño aproximado de descargas%u% 8.4 MB%g%"
+if %confirm%==1 goto ixdfe
+goto seguridad
+:ixdfe
+cls
+echo Descargando...
+"%~dp0wget.exe" "https://adwcleaner.malwarebytes.com/adwcleaner?channel=release" -O %TMP%\SoPI\adwcleaner.exe
+cls
+start %TMP%\SoPI\adwcleaner.exe
+goto :WinOS
 
 :mse
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [12 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Microsoft Security Essentials de 32 bits
+call :dw echo "Microsoft Security Essentials (x86) Tamaño aproximado de descarga 12 MB"
+if %confirm%==1 goto ix86
+goto seguridad
+:ix86
+cls
+echo Descargando...
 "%~dp0wget.exe" https://download.microsoft.com/download/2/A/C/2AC6E889-9EBB-4E06-A011-1AA9DAEDDB69/ESES/x86/MSEInstall.exe --no-check-certificate -O %TMP%\SoPI\MSEInstall.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\MSEInstall.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\MSEInstall.exe
-cls
-goto winOS
+call :ic
+
+
 :x64
-echo Descarga aprox. de [15 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Microsoft Security Essentials de 64 bits
+call :dw echo "Microsoft Security Essentials (x64) Tamaño aproximado de descarga 15 MB"
+if %confirm%==1 goto ix64
+goto seguridad
+:ix64
+cls
+echo Descargando...
 "%~dp0wget.exe" https://download.microsoft.com/download/2/A/C/2AC6E889-9EBB-4E06-A011-1AA9DAEDDB69/ESES/amd64/MSEInstall.exe --no-check-certificate -O %TMP%\SoPI\MSEInstall.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\MSEInstall.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :herramientas
 title %~n0 - Categoria: Herramientas del sistema
@@ -856,8 +902,9 @@ echo [4] Everything
 echo [5] Windows Update Blocker
 echo [6] Optimizer
 echo [7] GeekUninstaller
-echo [8] Regresar
 echo.
+echo  -Presiona 0 para regresar al menu principal
+echo.										
 set /p hbz=Opcion: 
 if "%hbz%"=="1" goto 7zip
 if "%hbz%"=="2" goto peazip
@@ -866,7 +913,7 @@ if "%hbz%"=="4" goto everything
 if "%hbz%"=="5" goto wub
 if "%hbz%"=="6" goto optimizer
 if "%hbz%"=="7" goto geeku
-if "%hbz%"=="8" goto winOS
+if "%hbz%"=="0" goto winOS
 echo Opcion invalida
 pause>nul
 cls
@@ -876,142 +923,216 @@ goto herramientas
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [1 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando 7-Zip de 32 bits
+call :dw echo "7-Zip (x86) Tamaño aproximado de descarga 1 MB"
+if %confirm%==1 goto ix86
+goto herramientas
+:ix86
+cls
+echo Descargando...
 echo.
-"%~dp0wget.exe" https://www.7-zip.org/a/7z2408.exe --no-check-certificate -O %TMP%\SoPI\7z2408.exe
+"%~dp0wget.exe" "https://www.7-zip.org/a/7z2408.exe" --no-check-certificate -O %TMP%\SoPI\7z_x86.exe
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\7z2408.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\7z_x86.exe /S
+call :ic
 :x64
-echo Descarga aprox. de [1.5 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando 7-Zip de 64 bits
+call :dw echo "7-Zip (x64) Tamaño aproximado de descarga 1.5 MB"
+if %confirm%==1 goto ix64
+goto herramientas
+:ix64
+cls
+echo Descargando...
 echo.
-"%~dp0wget.exe" https://www.7-zip.org/a/7z2408-x64.exe --no-check-certificate -O %TMP%\SoPI\7z2408-x64.exe
+"%~dp0wget.exe" "https://www.7-zip.org/a/7z2408-x64.exe" --no-check-certificate -O %TMP%\SoPI\7z_x64.exe
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\7z2408-x64.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\7z_x64.exe /S
+call :ic
 
 :peazip
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [8 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando PeaZIP de 32 bits
-"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/10.0.0/peazip-10.0.0.WINDOWS.exe --no-check-certificate -O %TMP%\SoPI\peazip-10.0.0.WINDOWS.exe 
+call :dw echo "PeaZIP (x86) Tamaño aproximado de descarga 8 MB"
+if %confirm%==1 goto ix86
+goto herramientas
+:ix86
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\peazip-10.0.0.WINDOWS.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/10.1.0/peazip-10.1.0.WINDOWS.exe --no-check-certificate -O %TMP%\SoPI\peazip_x86.exe 
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\peazip_x86.exe /silent
+call :ic
 :x64
-echo Descarga aprox. de [9 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando PeaZIP de 64 bits
-"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/10.0.0/peazip-10.0.0.WIN64.exe --no-check-certificate -O %TMP%\SoPI\peazip-10.0.0.WIN64.exe
+call :dw echo "PeaZIP (x64) Tamaño aproximado de descarga 9 MB"
+if %confirm%==1 goto ix64
+goto herramientas
+:ix64
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\peazip-10.0.0.WIN64.exe /silent
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/10.1.0/peazip-10.1.0.WIN64.exe --no-check-certificate -O %TMP%\SoPI\peazip_x64.exe
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\peazip_x64.exe /silent
+call :ic
 
 :ccleaner
 cls
-echo Descarga aprox. de [72 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando CCleaner Free
+call :dw echo "CCleaner Free. Tamaño aproximado de descarga 72 MB"
+if %confirm%==1 goto ixcc
+goto herramientas
+:ixcc
+cls
+echo Descargando...
 "%~dp0wget.exe" https://bits.avcdn.net/productfamily_CCLEANER/insttype_SLIM/platform_WIN_PIR/installertype_ONLINE/build_RELEASE -O %TMP%\SoPI\ccsetup619.exe
 cls
-echo Instalando espere...
+echo Instalando, espere...
 start /wait %TMP%\SoPI\ccsetup619.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
-cls
-goto winOS
+call :ic
 
 :everything
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-echo Descarga aprox. de [1.5 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Everything de 32 bits
-"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything-1.4.1.1026.x86-Setup.exe
+call :dw echo "Everything (x86) Tamaño aproximado de descarga 1.5 MB"
+if %confirm%==1 goto ix86
+goto herramientas
+:ix86
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\Everything-1.4.1.1026.x86-Setup.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything_x86.exe
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\Everything_x86.exe /S
+call :ic
 :x64
-echo Descarga aprox. de [1.8 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Everything de 64 bits
-"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1026.x64-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything-1.4.1.1026.x64-Setup.exe
+call :dw echo "Everything (x64) Tamaño aproximado de descarga 1.8 MB"
+if %confirm%==1 goto ix64
+goto herramientas
+:ix64
 cls
-echo Instalando espere...
-start /wait %TMP%\SoPI\Everything-1.4.1.1026.x64-Setup.exe /S
-echo Instalado
-ping -n 3 localhost>nul
-del /f /q %TMP%\SoPI\*.*
+echo Descargando...
+"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything_x64.exe
 cls
-goto winOS
+echo Instalando, espere...
+start /wait %TMP%\SoPI\Everything_x64.exe /S
+call :ic
+
 
 :wub
+call :ds
 cls
-echo Descarga aprox. de [1 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Windows Update Blocker
+call :dw echo "Windows Update Blocker. Tamaño aproximado de descarga 1 MB"
+if %confirm%==1 goto ixwu
+goto herramientas
+:ixwu
+cls
+echo Descargando...
 "%~dp0wget.exe" https://drive.usercontent.google.com/download?id=1N_XtcQHA6iSMC8YvL0_WIJ6n2AH0wePf -O %homedrive%\SoPI\WUB.ZIP
 cls
+if exist "%homedrive%\SoPI\Wub" rd /s /q "%homedrive%\SoPI\Wub"
+echo Descomprimiendo...
+@pushd "%~dp0"
+@7za.exe x "%homedrive%\SoPI\WUB.ZIP" -o%homedrive%\SoPI\
+del /f /q %homedrive%\SoPI\WUB.ZIP
 start %homedrive%\SoPI\
-cls
-goto winOS
+goto WinOS
 
 :optimizer
 cls
-echo Descarga aprox. de [2.5 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando Optimizer
-"%~dp0wget.exe" https://github.com/hellzerg/optimizer/releases/download/16.6/Optimizer-16.6.exe -O %homedrive%\SoPI\Optimizer.exe
+call :dw echo "Optimizer. Tamaño aproximado de descarga 2.5 MB"
+if %confirm%==1 goto ixop
+goto herramientas
+:ixop
+cls
+if exist "%homedrive%\SoPI\Optimizer.exe" del /f /q "%homedrive%\SoPI\Optimizer.exe"
+echo Descargando...
+"%~dp0wget.exe" https://github.com/hellzerg/optimizer/releases/download/16.7/Optimizer-16.7.exe -O %homedrive%\SoPI\Optimizer.exe
 cls
 start %homedrive%\SoPI\
-cls
-goto winOS
+goto WinOS
 
 :geeku
+call :ds
 cls
-echo Descarga aprox. de [3 MB], presione cualquier tecla para confirmar
-pause>nul
-echo Descargando GeekUninstaller
+call :dw echo "GeekUninstaller. Tamaño aproximado de descarga 3 MB"
+if %confirm%==1 goto ixgu
+goto herramientas
+:ixgu
+cls
+echo Descargando...
 "%~dp0wget.exe" https://geekuninstaller.com/geek.zip -O %homedrive%\SoPI\geek.zip
 cls
+if exist "%homedrive%\SoPI\geek.exe" del /f /q "%homedrive%\SoPI\geek.exe"
+echo Descomprimiendo...
+@pushd "%~dp0"
+@7za.exe x "%homedrive%\SoPI\geek.ZIP" -o%homedrive%\SoPI\
+del /f /q %homedrive%\SoPI\geek.ZIP
 start %homedrive%\SoPI\
-cls
-goto winOS
+goto WinOS
 
+:internet
+title %~n0 - Categoria: Internet
+mode con lines=20 cols=108
+cls
+echo.
+echo [1] qBittorrent (x64)
+echo [2] Telegram
+echo.
+echo  -Presiona 0 para regresar al menu principal
+echo.										
+set /p hbz=Opcion: 
+if "%hbz%"=="1" goto qbit
+if "%hbz%"=="2" goto telegram
+if "%hbz%"=="0" goto winOS
+echo Opcion invalida
+pause>nul
+cls
+goto internet
+
+:qbit
+cls
+call :dw echo "qBittorrent (x64) Tamaño aproximado de descarga 37 MB"
+if %confirm%==1 goto ix64
+goto internet
+:ix64
+cls
+echo Descargando...
+"%~dp0wget.exe" "https://sourceforge.net/projects/qbittorrent/files/qbittorrent-win32/qbittorrent-5.0.2/qbittorrent_5.0.2_x64_setup.exe/download" --no-check-certificate -O %TMP%\SoPI\qBittorrent.exe
+cls
+echo Instalando, espere...
+start /wait %TMP%\SoPI\qBittorrent.exe /S
+call :ic
+
+:telegram
+cls
+if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
+:x86
+call :dw echo "Telegram (x86) Tamaño aproximado de descarga 40 MB"
+if %confirm%==1 goto ix86
+goto internet
+:ix86
+cls
+echo Descargando...
+"%~dp0wget.exe" "https://github.com/telegramdesktop/tdesktop/releases/download/v5.9.0/tsetup.5.9.0.exe" -O %TMP%\SoPI\telegram86.exe
+cls
+echo Instalando, espere...
+start /wait %TMP%\SoPI\telegram86.exe /silent
+call :ic
+
+:x64
+call :dw echo "Telegram (x64) Tamaño aproximado de descarga 44 MB"
+if %confirm%==1 goto ix64
+goto internet
+:ix64
+cls
+echo Descargando...
+"%~dp0wget.exe" "https://github.com/telegramdesktop/tdesktop/releases/download/v5.9.0/tsetup-x64.5.9.0.exe" -O %TMP%\SoPI\telegram64.exe
+cls
+echo Instalando, espere...
+start /wait %TMP%\SoPI\telegram64.exe /silent
+call :ic
 :about
 cls
 mode con lines=20 cols=90
@@ -1030,41 +1151,29 @@ echo PD. SoPI funciona gracias a Wget y 7za.
 pause
 goto winOS
 
-@echo off
-:proyectos
-title %~n0 - Proyectos
-mode con lines=20 cols=108
+:dw
+set url=%1
+set mensaje=%2
+echo %mensaje%
+choice /c YN /m "Presiona Y para continuar o N para cancelar."
+if errorlevel 2 set confirm=0
+if errorlevel 1 set confirm=1
+goto :eof
+
+:ic
+echo Instalación completa
+ping -n 3 localhost>nul
 cls
-echo.
-echo 1. SoPI: (Software Post Intall) Software offline esencial para Windows
-echo 2. DcManyTools (Explorador de archivos con mas de 500 herramientas gratuitas)
-echo 3. UnHIDER USBFile (Herramienta para desinfectar unidades extraibles)
-echo 4. Tecnologia, software y descargas (hiberhernandez.com)
-echo 5. Regresar al menu
-echo.
-set /p hbz=Opcion: 
-if "%hbz%"=="1" goto sopi
-if "%hbz%"=="2" goto dcmt
-if "%hbz%"=="3" goto uuf
-if "%hbz%"=="4" goto hiberhdz
-if "%hbz%"=="5" goto winOS
-echo Opcion invalida
-pause>nul
+echo Limpiando archivos temporales...
+del /f /q %TMP%\SoPI\*.*
 cls
-goto :proyectos
+goto winOS
 
-:sopi
-start https://hiberhernandez.com/sopi/
-goto :proyectos
-
-:dcmt
-start https://hiberhernandez.com/dcmanytools/
-goto :proyectos
-
-:uuf
-start https://hiberhernandez.com/unhiderusbfile/
-goto :proyectos
-
-:hiberhdz
-start https://hiberhernandez.com/
-goto :proyectos
+:ds
+if exist "%~dp07za.exe" (
+    echo.
+  ) else (
+"%~dp0wget.exe" https://raw.githubusercontent.com/a-sync/7z-extra/master/7za.exe --no-check-certificate >nul
+    )
+)
+goto :eof
