@@ -120,7 +120,7 @@ cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 
 :x86
-call :dw echo "Google Chrome (x86) Tamaño aproximado de descarga 1.3 MB"
+call :dw echo "Google Chrome (x86) Descarga aproximada 1.3 MB"
 if %confirm%==1 goto ix86
 goto navegadores
 :ix86
@@ -133,7 +133,7 @@ start /wait %TMP%\SoPI\ChromeSetup86.exe
 call :ic
 
 :x64
-call :dw echo "Google Chrome (x64) Tamaño aproximado de descarga 1.3 MB"
+call :dw echo "Google Chrome (x64) Descarga aproximada 1.3 MB"
 if %confirm%==1 goto ix64
 goto navegadores
 :ix64
@@ -150,7 +150,7 @@ cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 
 :x86
-call :dw echo "Mozilla Firefox (x86) Tamaño aproximado de descarga 58 MB"
+call :dw echo "Mozilla Firefox (x86) Descarga aproximada 58 MB"
 if %confirm%==1 goto ix86
 goto navegadores
 :ix86
@@ -164,7 +164,7 @@ call :ic
 
 
 :x64
-call :dw echo "Mozilla Firefox (x64) Tamaño aproximado de descarga 60 MB"
+call :dw echo "Mozilla Firefox (x64) Descarga aproximada 60 MB"
 if %confirm%==1 goto ix64
 goto navegadores
 :ix64
@@ -178,7 +178,7 @@ call :ic
 
 :edge
 cls
-call :dw echo "Microsoft Edge. Tamaño aproximado de descarga 1.6 MB"
+call :dw echo "Microsoft Edge. Descarga aproximada 1.6 MB"
 if %confirm%==1 goto ixe
 goto navegadores
 :ixe
@@ -195,7 +195,7 @@ cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 
 :x86
-call :dw echo "Brave (x86) Tamaño aproximado de descarga 1.4 MB"
+call :dw echo "Brave (x86) Descarga aproximada 1.4 MB"
 if %confirm%==1 goto ix86
 goto navegadores
 :ix86
@@ -208,7 +208,7 @@ start /wait %TMP%\SoPI\BraveBrowserSetup32-BRV001.exe
 call :ic
 
 :x64
-call :dw echo "Brave (x64) Tamaño aproximado de descarga 1.4 MB"
+call :dw echo "Brave (x64) Descarga aproximada 1.4 MB"
 if %confirm%==1 goto ix64
 goto navegadores
 :ix64
@@ -222,7 +222,7 @@ call :ic
 
 :opera1
 cls
-call :dw echo "Opera One. Tamaño aproximado de descarga 2.7 MB"
+call :dw echo "Opera One. Descarga aproximada 2.7 MB"
 if %confirm%==1 goto ixe
 goto navegadores
 :ixe
@@ -236,7 +236,7 @@ call :ic
 
 :operagx
 cls
-call :dw echo "Opera GX. Tamaño aproximado de descarga 3.4 MB"
+call :dw echo "Opera GX. Descarga aproximada 3.4 MB"
 if %confirm%==1 goto ixe
 goto navegadores
 :ixe
@@ -277,7 +277,7 @@ goto multimedia
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "VLC Media Player (x86) Tamaño aproximado de descarga 42 MB"
+call :dw echo "VLC Media Player (x86) Descarga aproximada 42 MB"
 if %confirm%==1 goto ix86
 goto multimedia
 :ix86
@@ -291,7 +291,7 @@ call :ic
 
 
 :x64
-call :dw echo "VLC Media Player (x64) Tamaño aproximado de descarga 44 MB"
+call :dw echo "VLC Media Player (x64) Descarga aproximada 44 MB"
 if %confirm%==1 goto ix64
 goto multimedia
 :ix64
@@ -307,7 +307,7 @@ call :ic
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "Media Player Clasic (x86) Tamaño aproximado de descarga 18 MB"
+call :dw echo "Media Player Clasic (x86) Descarga aproximada 18 MB"
 if %confirm%==1 goto ix86
 goto multimedia
 :ix86
@@ -321,7 +321,7 @@ start /wait %TMP%\SoPI\MPC_x86.exe /silent
 call :ic
 
 :x64
-call :dw echo "Media Player Clasic (x64) Tamaño aproximado de descarga 20 MB"
+call :dw echo "Media Player Clasic (x64) Descarga aproximada 20 MB"
 if %confirm%==1 goto ix64
 goto multimedia
 :ix64
@@ -338,7 +338,7 @@ call :ic
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "AIMP (x86) Tamaño aproximado de descarga 15 MB"
+call :dw echo "AIMP (x86) Descarga aproximada 15 MB"
 if %confirm%==1 goto ix86
 goto multimedia
 :ix86
@@ -351,7 +351,7 @@ start /wait %TMP%\SoPI\aimp_32.exe
 call :ic
 
 :x64
-call :dw echo "AIMP (x64) Tamaño aproximado de descarga 19 MB"
+call :dw echo "AIMP (x64) Descarga aproximada 19 MB"
 if %confirm%==1 goto ix64
 goto multimedia
 :ix64
@@ -367,7 +367,7 @@ call :ic
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "foobar (x86) Tamaño aproximado de descarga 6 MB"
+call :dw echo "foobar (x86) Descarga aproximada 6 MB"
 if %confirm%==1 goto ix86
 goto multimedia
 :ix86
@@ -380,7 +380,7 @@ start /wait %TMP%\SoPI\foobar2000_x86.exe /S
 call :ic
 
 :x64
-call :dw echo "foobar (x64) Tamaño aproximado de descarga 6 MB"
+call :dw echo "foobar (x64) Descarga aproximada 6 MB"
 if %confirm%==1 goto ix64
 goto multimedia
 :ix64
@@ -394,7 +394,7 @@ call :ic
 
 :winamp
 cls
-call :dw echo "Winamp + Lenguaje Tamaño aproximado de descarga 12+7 MB"
+call :dw echo "Winamp + Lenguaje Descarga aproximada 12+7 MB"
 if %confirm%==1 goto ixa
 goto multimedia
 :ixa
@@ -404,7 +404,7 @@ echo Descargando...
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\winamp_latest_full.exe /S
-echo Instalación completa
+echo Instalacion completa
 ping -n 3 localhost>nul
 cls
 echo Descargando Lenguaje Pack
@@ -443,7 +443,7 @@ goto graficos
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "FocusOnImageViewer (x86) Tamaño aproximado de descarga 5 MB"
+call :dw echo "FocusOnImageViewer (x86) Descarga aproximada 5 MB"
 if %confirm%==1 goto ix86
 goto graficos
 :ix86
@@ -455,7 +455,7 @@ echo Instalando, espere...
 start /wait %TMP%\SoPI\FocusOnIV.exe /S
 call :ic
 :x64
-call :dw echo "FocusOnImageViewer (x64) Tamaño aproximado de descarga 5 MB"
+call :dw echo "FocusOnImageViewer (x64) Descarga aproximada 5 MB"
 if %confirm%==1 goto ix64
 goto graficos
 :ix64
@@ -469,7 +469,7 @@ call :ic
 
 :sharex
 cls
-call :dw echo "ShareX. Tamaño aproximado de descarga 38 MB"
+call :dw echo "ShareX. Descarga aproximada 38 MB"
 if %confirm%==1 goto ixs
 goto graficos
 :ixs
@@ -483,7 +483,7 @@ call :ic
 
 :lgts
 cls
-call :dw echo "Lightshot. Tamaño aproximado de descarga 3 MB"
+call :dw echo "Lightshot. Descarga aproximada 3 MB"
 if %confirm%==1 goto ixl
 goto graficos
 :ixl
@@ -498,7 +498,7 @@ call :ic
 :paintn
 call :ds
 cls
-call :dw echo "Paint.NET (x64) Tamaño aproximado de descarga 65 MB"
+call :dw echo "Paint.NET (x64) Descarga aproximada 65 MB"
 if %confirm%==1 goto ix64
 goto graficos
 :ix64
@@ -517,7 +517,7 @@ call :ic
 
 :gimp
 cls
-call :dw echo "GIMP. Tamaño aproximado de descarga 330 MB"
+call :dw echo "GIMP. Descarga aproximada 330 MB"
 if %confirm%==1 goto ixg
 goto graficos
 :ixg
@@ -558,7 +558,7 @@ goto ofimatica
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "LibreOffice (x86) Tamaño aproximado de descarga 340 MB"
+call :dw echo "LibreOffice (x86) Descarga aproximada 340 MB"
 if %confirm%==1 goto ix86
 goto ofimatica
 :ix86
@@ -571,7 +571,7 @@ start /wait %TMP%\SoPI\LibreOffice_x86.msi /passive
 call :ic
 
 :x64
-call :dw echo "LibreOffice (x64) Tamaño aproximado de descarga 360 MB"
+call :dw echo "LibreOffice (x64) Descarga aproximada 360 MB"
 if %confirm%==1 goto ix64
 goto ofimatica
 :ix64
@@ -587,7 +587,7 @@ call :ic
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "ONLYOFFICE (x86) Tamaño aproximado de descarga 233 MB"
+call :dw echo "ONLYOFFICE (x86) Descarga aproximada 233 MB"
 if %confirm%==1 goto ix86
 goto ofimatica
 :ix86
@@ -601,7 +601,7 @@ call :ic
 
 
 :x64
-call :dw echo "ONLYOFFICE (x64) Tamaño aproximado de descarga 254 MB"
+call :dw echo "ONLYOFFICE (x64) Descarga aproximada 254 MB"
 if %confirm%==1 goto ix64
 goto ofimatica
 :ix64
@@ -615,7 +615,7 @@ call :ic
 
 :freeo
 cls
-call :dw echo "FreeOffice. Tamaño aproximado de descarga 124 MB"
+call :dw echo "FreeOffice. Descarga aproximada 124 MB"
 if %confirm%==1 goto ixf
 goto ofimatica
 :ixf
@@ -631,7 +631,7 @@ call :ic
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "SumatraPDF (x86) Tamaño aproximado de descarga 7 MB"
+call :dw echo "SumatraPDF (x86) Descarga aproximada 7 MB"
 if %confirm%==1 goto ix86
 goto ofimatica
 :ix86
@@ -644,7 +644,7 @@ start /wait %TMP%\SoPI\SumatraPDF-3.5.1-install.exe /silent
 call :ic
 
 :x64
-call :dw echo "SumatraPDF (x64) Tamaño aproximado de descarga 8 MB"
+call :dw echo "SumatraPDF (x64) Descarga aproximada 8 MB"
 if %confirm%==1 goto ix64
 goto ofimatica
 :ix64
@@ -659,7 +659,7 @@ call :ic
 
 :foxit
 cls
-call :dw echo "Foxit Reader. Tamaño aproximado de descarga 153 MB"
+call :dw echo "Foxit Reader. Descarga aproximada 153 MB"
 if %confirm%==1 goto ixfo
 goto ofimatica
 :ixfo
@@ -694,7 +694,7 @@ goto runtimes
 
 :netf
 cls
-call :dw echo "NetFramework 4.8. Tamaño aproximado de descarga 121 MB"
+call :dw echo "NetFramework 4.8. Descarga aproximada 121 MB"
 if %confirm%==1 goto ixnt
 goto runtimes
 :ixnt
@@ -708,7 +708,7 @@ call :ic
 
 :visualc
 cls
-call :dw echo "VisualC++ AIO Recpack. Tamaño aproximado de descarga 29 MB"
+call :dw echo "VisualC++ AIO Recpack. Descarga aproximada 29 MB"
 if %confirm%==1 goto ixv
 goto runtimes
 :ixv
@@ -731,7 +731,7 @@ if exist "%~dp07za.exe" (
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "DirectX Redist Repack (x86) Tamaño aproximado de descarga 14 MB"
+call :dw echo "DirectX Redist Repack (x86) Descarga aproximada 14 MB"
 if %confirm%==1 goto ix86
 goto runtimes
 :ix86
@@ -748,7 +748,7 @@ start /wait %TMP%\SoPI\DirectX_Redist_Repack_x86.exe
 call :ic
 
 :x64
-call :dw echo "DirectX Redist Repack (x64) Tamaño aproximado de descarga 26 MB"
+call :dw echo "DirectX Redist Repack (x64) Descarga aproximada 26 MB"
 if %confirm%==1 goto ix64
 goto runtimes
 :ix64
@@ -793,7 +793,7 @@ goto seguridad
 
 :360
 cls
-call :dw echo "360 Total Security. Tamaño aproximado de descarga 101 MB"
+call :dw echo "360 Total Security. Descarga aproximada 101 MB"
 if %confirm%==1 goto ix3
 goto seguridad
 :ix3
@@ -807,7 +807,7 @@ call :ic
 
 :avast
 cls
-call :dw echo "Avast Free. Tamaño aproximado de descarga 648 MB"
+call :dw echo "Avast Free. Descarga aproximada 648 MB"
 if %confirm%==1 goto ixav
 goto seguridad
 :ixav
@@ -821,7 +821,7 @@ call :ic
 
 :bitd
 cls
-call :dw echo "BitDefender Free. Tamaño aproximado de descarga 13 MB"
+call :dw echo "BitDefender Free. Descarga aproximada 13 MB"
 if %confirm%==1 goto ixdfe
 goto seguridad
 :ixdfe
@@ -835,7 +835,7 @@ call :ic
 
 :mbt
 cls
-call :dw echo "Malwarebytes. Tamaño aproximado de descarga 2.6 MB"
+call :dw echo "Malwarebytes. Descarga aproximada 2.6 MB"
 if %confirm%==1 goto ixdfe
 goto seguridad
 :ixdfe
@@ -849,7 +849,7 @@ call :ic
 
 :mbac
 cls
-call :dw echo "Malwarebytes AdwCleaner. Tamaño aproximado de descargas%u% 8.4 MB%g%"
+call :dw echo "Malwarebytes AdwCleaner. Descarga aproximadas%u% 8.4 MB%g%"
 if %confirm%==1 goto ixdfe
 goto seguridad
 :ixdfe
@@ -864,7 +864,7 @@ goto :WinOS
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "Microsoft Security Essentials (x86) Tamaño aproximado de descarga 12 MB"
+call :dw echo "Microsoft Security Essentials (x86) Descarga aproximada 12 MB"
 if %confirm%==1 goto ix86
 goto seguridad
 :ix86
@@ -878,7 +878,7 @@ call :ic
 
 
 :x64
-call :dw echo "Microsoft Security Essentials (x64) Tamaño aproximado de descarga 15 MB"
+call :dw echo "Microsoft Security Essentials (x64) Descarga aproximada 15 MB"
 if %confirm%==1 goto ix64
 goto seguridad
 :ix64
@@ -923,7 +923,7 @@ goto herramientas
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "7-Zip (x86) Tamaño aproximado de descarga 1 MB"
+call :dw echo "7-Zip (x86) Descarga aproximada 1 MB"
 if %confirm%==1 goto ix86
 goto herramientas
 :ix86
@@ -936,7 +936,7 @@ echo Instalando, espere...
 start /wait %TMP%\SoPI\7z_x86.exe /S
 call :ic
 :x64
-call :dw echo "7-Zip (x64) Tamaño aproximado de descarga 1.5 MB"
+call :dw echo "7-Zip (x64) Descarga aproximada 1.5 MB"
 if %confirm%==1 goto ix64
 goto herramientas
 :ix64
@@ -953,7 +953,7 @@ call :ic
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "PeaZIP (x86) Tamaño aproximado de descarga 8 MB"
+call :dw echo "PeaZIP (x86) Descarga aproximada 8 MB"
 if %confirm%==1 goto ix86
 goto herramientas
 :ix86
@@ -965,7 +965,7 @@ echo Instalando, espere...
 start /wait %TMP%\SoPI\peazip_x86.exe /silent
 call :ic
 :x64
-call :dw echo "PeaZIP (x64) Tamaño aproximado de descarga 9 MB"
+call :dw echo "PeaZIP (x64) Descarga aproximada 9 MB"
 if %confirm%==1 goto ix64
 goto herramientas
 :ix64
@@ -979,7 +979,7 @@ call :ic
 
 :ccleaner
 cls
-call :dw echo "CCleaner Free. Tamaño aproximado de descarga 72 MB"
+call :dw echo "CCleaner Free. Descarga aproximada 72 MB"
 if %confirm%==1 goto ixcc
 goto herramientas
 :ixcc
@@ -995,7 +995,7 @@ call :ic
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "Everything (x86) Tamaño aproximado de descarga 1.5 MB"
+call :dw echo "Everything (x86) Descarga aproximada 1.5 MB"
 if %confirm%==1 goto ix86
 goto herramientas
 :ix86
@@ -1007,7 +1007,7 @@ echo Instalando, espere...
 start /wait %TMP%\SoPI\Everything_x86.exe /S
 call :ic
 :x64
-call :dw echo "Everything (x64) Tamaño aproximado de descarga 1.8 MB"
+call :dw echo "Everything (x64) Descarga aproximada 1.8 MB"
 if %confirm%==1 goto ix64
 goto herramientas
 :ix64
@@ -1023,7 +1023,7 @@ call :ic
 :wub
 call :ds
 cls
-call :dw echo "Windows Update Blocker. Tamaño aproximado de descarga 1 MB"
+call :dw echo "Windows Update Blocker. Descarga aproximada 1 MB"
 if %confirm%==1 goto ixwu
 goto herramientas
 :ixwu
@@ -1041,7 +1041,7 @@ goto WinOS
 
 :optimizer
 cls
-call :dw echo "Optimizer. Tamaño aproximado de descarga 2.5 MB"
+call :dw echo "Optimizer. Descarga aproximada 2.5 MB"
 if %confirm%==1 goto ixop
 goto herramientas
 :ixop
@@ -1056,7 +1056,7 @@ goto WinOS
 :geeku
 call :ds
 cls
-call :dw echo "GeekUninstaller. Tamaño aproximado de descarga 3 MB"
+call :dw echo "GeekUninstaller. Descarga aproximada 3 MB"
 if %confirm%==1 goto ixgu
 goto herramientas
 :ixgu
@@ -1093,7 +1093,7 @@ goto internet
 
 :qbit
 cls
-call :dw echo "qBittorrent (x64) Tamaño aproximado de descarga 37 MB"
+call :dw echo "qBittorrent (x64) Descarga aproximada 37 MB"
 if %confirm%==1 goto ix64
 goto internet
 :ix64
@@ -1109,7 +1109,7 @@ call :ic
 cls
 if «%processor_architecture%» == «x86» (goto x86) else (goto x64)
 :x86
-call :dw echo "Telegram (x86) Tamaño aproximado de descarga 40 MB"
+call :dw echo "Telegram (x86) Descarga aproximada 40 MB"
 if %confirm%==1 goto ix86
 goto internet
 :ix86
@@ -1122,7 +1122,7 @@ start /wait %TMP%\SoPI\telegram86.exe /silent
 call :ic
 
 :x64
-call :dw echo "Telegram (x64) Tamaño aproximado de descarga 44 MB"
+call :dw echo "Telegram (x64) Descarga aproximada 44 MB"
 if %confirm%==1 goto ix64
 goto internet
 :ix64
@@ -1161,7 +1161,7 @@ if errorlevel 1 set confirm=1
 goto :eof
 
 :ic
-echo Instalación completa
+echo Instalacion completa
 ping -n 3 localhost>nul
 cls
 echo Limpiando archivos temporales...
