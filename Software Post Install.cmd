@@ -65,7 +65,7 @@ echo.
 echo.
 
 :cat
-title SoPI (Software Post Install) v24.12.11
+title SoPI (Software Post Install) v24.12.17
 echo Categorias:
 echo.
 echo 	[1] Navegadores web      [4] Ofimatica		[7] Herramientas
@@ -184,7 +184,7 @@ goto navegadores
 :ixe
 cls
 echo Descargando...
-"%~dp0wget.exe" "https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?platform=Default&source=EdgeStablePage&Channel=Stable&language=es-419&brand=M100" -O %TMP%\SoPI\MicrosoftEdgeSetup.exe
+"%~dp0wget.exe" "https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?platform=Default&source=EdgeStablePage&Channel=Stable&language=es-419&brand=M100" --no-check-certificate -O %TMP%\SoPI\MicrosoftEdgeSetup.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\MicrosoftEdgeSetup.exe
@@ -373,7 +373,7 @@ goto multimedia
 :ix86
 cls
 echo Descargando...
-"%~dp0wget.exe" https://www.foobar2000.org/getfile/foobar2000_v2.24.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_x86.exe
+"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000_v2.24.1.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_x86.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\foobar2000_x86.exe /S
@@ -386,7 +386,7 @@ goto multimedia
 :ix64
 cls
 echo Descargando...
-"%~dp0wget.exe" https://www.foobar2000.org/getfile/foobar2000-x64_v2.24.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_x64.exe
+"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000-x64_v2.24.1.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_x64.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\foobar2000_x64.exe /S
