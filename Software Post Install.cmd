@@ -65,7 +65,7 @@ echo.
 echo.
 
 :cat
-title SoPI (Software Post Install) v24.12.17
+title SoPI (Software Post Install) v24.12.19
 echo Categorias:
 echo.
 echo 	[1] Navegadores web      [4] Ofimatica		[7] Herramientas
@@ -314,7 +314,7 @@ goto multimedia
 cls
 echo Descargando...
 echo.
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.8/MPC-HC.2.3.8.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC_x86.exe
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.9/MPC-HC.2.3.9.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC_x86.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\MPC_x86.exe /silent
@@ -328,7 +328,7 @@ goto multimedia
 cls
 echo Descargando...
 echo.
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.6/MPC-HC.2.3.6.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC_x64.exe
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.9/MPC-HC.2.3.9.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC_x64.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\MPC_x64.exe /silent
@@ -564,7 +564,7 @@ goto ofimatica
 :ix86
 cls
 echo Descargando...
-"%~dp0wget.exe" https://download.documentfoundation.org/libreoffice/stable/24.8.3/win/x86/LibreOffice_24.8.3_Win_x86.msi -O %TMP%\SoPI\LibreOffice_x86.msi
+"%~dp0wget.exe" https://download.documentfoundation.org/libreoffice/stable/24.8.4/win/x86/LibreOffice_24.8.4_Win_x86.msi -O %TMP%\SoPI\LibreOffice_x86.msi
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\LibreOffice_x86.msi /passive
@@ -577,7 +577,7 @@ goto ofimatica
 :ix64
 cls
 echo Descargando...
-"%~dp0wget.exe" https://ftp.osuosl.org/pub/tdf/libreoffice/stable/24.8.3/win/x86_64/LibreOffice_24.8.3_Win_x86-64.msi -O %TMP%\SoPI\LibreOffice_x64.msi
+"%~dp0wget.exe" https://ftp.osuosl.org/pub/tdf/libreoffice/stable/24.8.4/win/x86_64/LibreOffice_24.8.4_Win_x86-64.msi -O %TMP%\SoPI\LibreOffice_x64.msi
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\LibreOffice_x64.msi /passive
@@ -637,7 +637,7 @@ goto ofimatica
 :ix86
 cls
 echo Descargando...
-"%~dp0wget.exe" https://www.sumatrapdfreader.org/dl/rel/3.5.1/SumatraPDF-3.5.1-install.exe --no-check-certificate -O %TMP%\SoPI\SumatraPDF-3.5.1-install.exe
+"%~dp0wget.exe" https://www.sumatrapdfreader.org/dl/rel/3.5.2/SumatraPDF-3.5.2-install.exe --no-check-certificate -O %TMP%\SoPI\SumatraPDF-3.5.1-install.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\SumatraPDF-3.5.1-install.exe /silent
@@ -650,7 +650,7 @@ goto ofimatica
 :ix64
 cls
 echo Descargando...
-"%~dp0wget.exe" https://www.sumatrapdfreader.org/dl/rel/3.5.1/SumatraPDF-3.5.1-64-install.exe --no-check-certificate -O %TMP%\SoPI\SumatraPDF-3.5.1-64-install.exe
+"%~dp0wget.exe" https://www.sumatrapdfreader.org/dl/rel/3.5.2/SumatraPDF-3.5.2-64-install.exe --no-check-certificate -O %TMP%\SoPI\SumatraPDF-3.5.1-64-install.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\SumatraPDF-3.5.1-64-install.exe /silent
