@@ -314,7 +314,7 @@ goto multimedia
 cls
 echo Descargando...
 echo.
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.9/MPC-HC.2.3.9.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC_x86.exe
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.5.1/MPC-HC.2.3.9.x86.exe --no-check-certificate -O %TMP%\SoPI\MPC_x86.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\MPC_x86.exe /silent
@@ -328,7 +328,7 @@ goto multimedia
 cls
 echo Descargando...
 echo.
-"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.3.9/MPC-HC.2.3.9.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC_x64.exe
+"%~dp0wget.exe" https://github.com/clsid2/mpc-hc/releases/download/2.5.1/MPC-HC.2.3.9.x64.exe --no-check-certificate -O %TMP%\SoPI\MPC_x64.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\MPC_x64.exe /silent
@@ -373,7 +373,7 @@ goto multimedia
 :ix86
 cls
 echo Descargando...
-"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000_v2.24.1.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_x86.exe
+"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000_v2.24.6.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_x86.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\foobar2000_x86.exe /S
@@ -386,7 +386,7 @@ goto multimedia
 :ix64
 cls
 echo Descargando...
-"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000-x64_v2.24.1.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_x64.exe
+"%~dp0wget.exe" https://www.foobar2000.org/files/foobar2000-x64_v2.24.6.exe --no-check-certificate -O %TMP%\SoPI\foobar2000_x64.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\foobar2000_x64.exe /S
@@ -449,7 +449,7 @@ goto graficos
 :ix86
 cls
 echo Descargando...
-"%~dp0wget.exe" https://github.com/pintosoft/FocusOnImageViewer/releases/download/1.31/FocusOnIV_1.31.exe --no-check-certificate -O %TMP%\SoPI\FocusOnIV.exe
+"%~dp0wget.exe" https://github.com/pintosoft/FocusOnImageViewer/releases/download/1.32/FocusOnIV_1.32.exe --no-check-certificate -O %TMP%\SoPI\FocusOnIV.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\FocusOnIV.exe /S
@@ -461,7 +461,7 @@ goto graficos
 :ix64
 cls
 echo Descargando...
-"%~dp0wget.exe" https://github.com/pintosoft/FocusOnImageViewer/releases/download/1.31/FocusOnIV64_1.31.exe --no-check-certificate -O %TMP%\SoPI\FocusOnIV64.exe
+"%~dp0wget.exe" https://github.com/pintosoft/FocusOnImageViewer/releases/download/1.32/FocusOnIV64_1.32.exe --no-check-certificate -O %TMP%\SoPI\FocusOnIV64.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\FocusOnIV64.exe /S
@@ -475,7 +475,7 @@ goto graficos
 :ixs
 cls
 echo Descargando...
-"%~dp0wget.exe" https://github.com/ShareX/ShareX/releases/download/v16.1.0/ShareX-16.1.0-setup.exe --no-check-certificate -O %TMP%\SoPI\ShareX-setup.exe
+"%~dp0wget.exe" https://github.com/ShareX/ShareX/releases/download/v17.0.0/ShareX-17.0.0-setup.exe --no-check-certificate -O %TMP%\SoPI\ShareX-setup.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\ShareX-setup.exe /silent
@@ -504,7 +504,7 @@ goto graficos
 :ix64
 cls
 echo Descargando...
-"%~dp0wget.exe" https://github.com/paintdotnet/release/releases/download/v5.1.1/paint.net.5.1.1.install.x64.zip --no-check-certificate -O %TMP%\SoPI\paint.net_x64.zip
+"%~dp0wget.exe" https://github.com/paintdotnet/release/releases/download/v5.1.8/paint.net.5.1.8.install.x64.zip --no-check-certificate -O %TMP%\SoPI\paint.net_x64.zip
 cls
 echo Descomprimiendo...
 @pushd "%~dp0"
@@ -564,7 +564,7 @@ goto ofimatica
 :ix86
 cls
 echo Descargando...
-"%~dp0wget.exe" https://download.documentfoundation.org/libreoffice/stable/24.8.4/win/x86/LibreOffice_24.8.4_Win_x86.msi -O %TMP%\SoPI\LibreOffice_x86.msi
+"%~dp0wget.exe" https://ftp.osuosl.org/pub/tdf/libreoffice/stable/25.2.5/win/x86/LibreOffice_25.2.5_Win_x86.msi -O %TMP%\SoPI\LibreOffice_x86.msi
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\LibreOffice_x86.msi /passive
@@ -577,7 +577,7 @@ goto ofimatica
 :ix64
 cls
 echo Descargando...
-"%~dp0wget.exe" https://ftp.osuosl.org/pub/tdf/libreoffice/stable/24.8.4/win/x86_64/LibreOffice_24.8.4_Win_x86-64.msi -O %TMP%\SoPI\LibreOffice_x64.msi
+"%~dp0wget.exe" https://ftp.osuosl.org/pub/tdf/libreoffice/stable/25.2.5/win/x86_64/LibreOffice_25.2.5_Win_x86-64.msi -O %TMP%\SoPI\LibreOffice_x64.msi
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\LibreOffice_x64.msi /passive
@@ -714,7 +714,7 @@ goto runtimes
 :ixv
 cls
 echo Descargando...
-"%~dp0wget.exe" https://github.com/abbodi1406/vcredist/releases/download/v0.85.0/VisualCppRedist_AIO_x86_x64.exe --no-check-certificate -O %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
+"%~dp0wget.exe" https://github.com/abbodi1406/vcredist/releases/download/v0.92.0/VisualCppRedist_AIO_x86_x64.exe --no-check-certificate -O %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\VCRedist_AIO_x86_x64.exe
@@ -930,7 +930,7 @@ goto herramientas
 cls
 echo Descargando...
 echo.
-"%~dp0wget.exe" "https://www.7-zip.org/a/7z2408.exe" --no-check-certificate -O %TMP%\SoPI\7z_x86.exe
+"%~dp0wget.exe" "https://www.7-zip.org/a/7z2500.exe" --no-check-certificate -O %TMP%\SoPI\7z_x86.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\7z_x86.exe /S
@@ -943,7 +943,7 @@ goto herramientas
 cls
 echo Descargando...
 echo.
-"%~dp0wget.exe" "https://www.7-zip.org/a/7z2408-x64.exe" --no-check-certificate -O %TMP%\SoPI\7z_x64.exe
+"%~dp0wget.exe" "https://www.7-zip.org/a/7z2500-x64.exe" --no-check-certificate -O %TMP%\SoPI\7z_x64.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\7z_x64.exe /S
@@ -959,7 +959,7 @@ goto herramientas
 :ix86
 cls
 echo Descargando...
-"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/10.1.0/peazip-10.1.0.WINDOWS.exe --no-check-certificate -O %TMP%\SoPI\peazip_x86.exe 
+"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/10.5.0/peazip-10.5.0.WINDOWS.exe --no-check-certificate -O %TMP%\SoPI\peazip_x86.exe 
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\peazip_x86.exe /silent
@@ -971,7 +971,7 @@ goto herramientas
 :ix64
 cls
 echo Descargando...
-"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/10.1.0/peazip-10.1.0.WIN64.exe --no-check-certificate -O %TMP%\SoPI\peazip_x64.exe
+"%~dp0wget.exe" https://github.com/peazip/PeaZip/releases/download/10.5.0/peazip-10.5.0.WIN64.exe --no-check-certificate -O %TMP%\SoPI\peazip_x64.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\peazip_x64.exe /silent
@@ -1001,7 +1001,7 @@ goto herramientas
 :ix86
 cls
 echo Descargando...
-"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything_x86.exe
+"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1028.x86-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything_x86.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\Everything_x86.exe /S
@@ -1013,7 +1013,7 @@ goto herramientas
 :ix64
 cls
 echo Descargando...
-"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1026.x86-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything_x64.exe
+"%~dp0wget.exe" https://www.voidtools.com/Everything-1.4.1.1028.x86-Setup.exe --no-check-certificate -O %TMP%\SoPI\Everything_x64.exe
 cls
 echo Instalando, espere...
 start /wait %TMP%\SoPI\Everything_x64.exe /S
